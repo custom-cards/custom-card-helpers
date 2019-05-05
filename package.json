@@ -1,0 +1,36 @@
+{
+  "name": "custom-card-helpers",
+  "version": "1.0.5",
+  "description": "Set of helpful functions and types for Custom Card creators",
+  "main": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.m.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "microbundle watch",
+    "build": "microbundle"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/custom-cards/custom-card-helpers.git"
+  },
+  "keywords": [
+    "home",
+    "assistant",
+    "custom",
+    "cards"
+  ],
+  "author": "Ian Richardson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/custom-cards/custom-card-helpers/issues"
+  },
+  "homepage": "https://github.com/custom-cards/custom-card-helpers#readme",
+  "dependencies": {
+    "home-assistant-js-websocket": "^3.4.0",
+    "superstruct": "^0.6.0"
+  },
+  "devDependencies": {
+    "microbundle": "^0.11.0"
+  }
+}
