@@ -161,17 +161,17 @@ class LongPress extends HTMLElement implements LongPress {
   }
 }
 
-if (!customElements.get("long-press")) {
-  customElements.define("long-press", LongPress);
+if (!customElements.get("long-press-custom-card-helpers")) {
+  customElements.define("long-press-custom-card-helpers", LongPress);
 }
 
 const getLongPress = (): LongPress => {
   const body = document.body;
-  if (body.querySelector("long-press")) {
-    return body.querySelector("long-press") as LongPress;
+  if (body.querySelector("long-press-custom-card-helpers")) {
+    return body.querySelector("long-press-custom-card-helpers") as LongPress;
   }
 
-  const longpress = document.createElement("long-press");
+  const longpress = document.createElement("long-press-custom-card-helpers");
   body.appendChild(longpress);
 
   return longpress as LongPress;
