@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "lib": [
+            "es6",
+            "dom"
+        ]
+    },
+    "include": [
+            "globals.d.ts",
+            <Include file paths to documents that should be documented.>
+            "src/file1.ts"
+        ],
+    "exclude": [
+            "node_modules",
+            "src/**/*.test.ts"
+        ]
+}
