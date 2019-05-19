@@ -9,7 +9,7 @@ yarn install
 npx microbundle
 ```
 
-Check the [documentation]() for details on available functions
+Check the [documentation](https://custom-cards.github.io/custom-card-helpers/) for details on available functions
 
 To generate documentation run the following:
 
