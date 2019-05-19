@@ -40,8 +40,8 @@ export const handleClick = (
           entityId: actionConfig.entity
             ? actionConfig.entity
             : config.entity
-            ? config.entity
-            : config.camera_image
+              ? config.entity
+              : config.camera_image
         });
         if (actionConfig.haptic) forwardHaptic(node, actionConfig.haptic);
       }
