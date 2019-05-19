@@ -8,7 +8,7 @@ import { LocalizeFunc } from "../translations/localize";
 const tests = [60, 60, 24, 7];
 const langKey = ["second", "minute", "hour", "day"];
 
-export default function relativeTime(
+export function relativeTime(
   dateObj: Date,
   localize: LocalizeFunc,
   options: {

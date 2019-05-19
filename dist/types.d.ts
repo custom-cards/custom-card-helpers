@@ -2,14 +2,17 @@ import { HassEntities, HassConfig, Auth, Connection, MessageBase, HassServices }
 import { HapticType } from "./haptic";
 export interface ToggleActionConfig {
     action: "toggle";
+    repeat?: number;
     haptic?: HapticType;
 }
 export interface ToggleMenuActionConfig {
     action: "toggle-menu";
+    repeat?: number;
     haptic?: HapticType;
 }
 export interface CallServiceActionConfig {
     action: "call-service";
+    repeat?: number;
     haptic?: HapticType;
     service: string;
     service_data?: {
@@ -19,23 +22,39 @@ export interface CallServiceActionConfig {
 }
 export interface NavigateActionConfig {
     action: "navigate";
+    repeat?: number;
     haptic?: HapticType;
     navigation_path: string;
 }
 export interface MoreInfoActionConfig {
     action: "more-info";
+    repeat?: number;
     haptic?: HapticType;
     entity?: string;
 }
 export interface UrlActionConfig {
     action: "url";
+    repeat?: number;
     haptic?: HapticType;
     url: string;
 }
 export interface NoActionConfig {
     action: "none";
+    repeat?: number;
 }
 export declare type ActionConfig = ToggleActionConfig | ToggleMenuActionConfig | CallServiceActionConfig | NavigateActionConfig | MoreInfoActionConfig | UrlActionConfig | NoActionConfig;
+export interface Window {
+    customPanelJS: string;
+    ShadyCSS: {
+        nativeCss: boolean;
+        nativeShadow: boolean;
+        prepareTemplate(templateElement: any, elementName: any, elementExtension: any): any;
+        styleElement(element: any): any;
+        styleSubtree(element: any, overrideProperties: any): any;
+        styleDocument(overrideProperties: any): any;
+        getComputedStyleValue(element: any, propertyName: any): any;
+    };
+}
 declare global {
     interface HASSDomEvents {
         "value-changed": {

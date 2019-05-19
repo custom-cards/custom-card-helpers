@@ -1,15 +1,15 @@
 import { HassEntity } from "home-assistant-js-websocket";
-import formatDateTime from "./datetime/format_date_time";
-import formatDate from "./datetime/format_date";
-import formatTime from "./datetime/format_time";
+import { formatDateTime } from "./datetime/format_date_time";
+import { formatDate } from "./datetime/format_date";
+import { formatTime } from "./datetime/format_time";
 import { LocalizeFunc } from "./translations/localize";
-import computeStateDomain from "./compute-state-domain";
+import { computeStateDomain } from "./compute-state-domain";
 
-export default (
+export function computeStateDisplay(
   localize: LocalizeFunc,
   stateObj: HassEntity,
   language: string
-): string => {
+): string {
   let display: string | undefined;
   const domain = computeStateDomain(stateObj);
 
@@ -83,4 +83,4 @@ export default (
   }
 
   return display;
-};
+}

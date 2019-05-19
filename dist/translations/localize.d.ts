@@ -1,3 +1,4 @@
+import { Resources } from "../types";
 export declare type LocalizeFunc = (key: string, ...args: any[]) => string;
 interface FormatType {
     [format: string]: any;
@@ -26,7 +27,7 @@ export interface FormatsType {
  *    number: { USD: { style: 'currency', currency: 'USD' } }
  * }
  */
-export declare const computeLocalize: (cache: any, language: string, resources: any, formats?: FormatsType) => LocalizeFunc;
+export declare const computeLocalize: (cache: any, language: string, resources: Resources, formats?: FormatsType) => LocalizeFunc;
 /**
  * Silly helper function that converts an object of placeholders to array so we
  * can convert it back to an object again inside the localize func.

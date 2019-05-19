@@ -1,2 +1,1 @@
-declare const _default: (dateObj: Date, locales: string) => string;
-export default _default;
+export declare const formatDateTime: (dateObj: Date, locales: string) => string;

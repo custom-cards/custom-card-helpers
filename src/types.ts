@@ -10,16 +10,19 @@ import { HapticType } from "./haptic";
 
 export interface ToggleActionConfig {
   action: "toggle";
+  repeat?: number;
   haptic?: HapticType;
 }
 
 export interface ToggleMenuActionConfig {
   action: "toggle-menu";
+  repeat?: number;
   haptic?: HapticType;
 }
 
 export interface CallServiceActionConfig {
   action: "call-service";
+  repeat?: number;
   haptic?: HapticType;
   service: string;
   service_data?: {
@@ -30,24 +33,28 @@ export interface CallServiceActionConfig {
 
 export interface NavigateActionConfig {
   action: "navigate";
+  repeat?: number;
   haptic?: HapticType;
   navigation_path: string;
 }
 
 export interface MoreInfoActionConfig {
   action: "more-info";
+  repeat?: number;
   haptic?: HapticType;
   entity?: string;
 }
 
 export interface UrlActionConfig {
   action: "url";
+  repeat?: number;
   haptic?: HapticType;
   url: string;
 }
 
 export interface NoActionConfig {
   action: "none";
+  repeat?: number;
 }
 
 export type ActionConfig =
@@ -58,6 +65,20 @@ export type ActionConfig =
   | MoreInfoActionConfig
   | UrlActionConfig
   | NoActionConfig;
+
+export interface Window {
+  // Custom panel entry point url
+  customPanelJS: string;
+  ShadyCSS: {
+    nativeCss: boolean;
+    nativeShadow: boolean;
+    prepareTemplate(templateElement, elementName, elementExtension);
+    styleElement(element);
+    styleSubtree(element, overrideProperties);
+    styleDocument(overrideProperties);
+    getComputedStyleValue(element, propertyName);
+  };
+}
 
 declare global {
   // for fire event

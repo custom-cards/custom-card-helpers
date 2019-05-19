@@ -1,5 +1,5 @@
 import IntlMessageFormat from "intl-messageformat/src/main";
-import { Resources } from "../../types";
+import { Resources } from "../types";
 
 export type LocalizeFunc = (key: string, ...args: any[]) => string;
 

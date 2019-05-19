@@ -1,1 +1,1 @@
-export default function computeDomain(entityId: string): string;
+export declare function computeDomain(entityId: string): string;

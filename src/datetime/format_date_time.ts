@@ -10,7 +10,7 @@ function toLocaleStringSupportsOptions() {
   return false;
 }
 
-export default (toLocaleStringSupportsOptions()
+export const formatDateTime = (toLocaleStringSupportsOptions()
   ? (dateObj: Date, locales: string) =>
       dateObj.toLocaleString(locales, {
         year: "numeric",

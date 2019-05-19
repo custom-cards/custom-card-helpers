@@ -1,8 +1,8 @@
-import { navigate } from "./navigate";
-import { toggleEntity } from "./toggle-entity";
 import { HomeAssistant, ActionConfig } from "./types";
 import { fireEvent } from "./fire-event";
 import { forwardHaptic } from "./haptic";
+import { navigate } from "./navigate";
+import { toggleEntity } from "./toggle-entity";
 
 export const handleClick = (
   node: HTMLElement,
@@ -12,12 +12,16 @@ export const handleClick = (
     camera_image?: string;
     hold_action?: ActionConfig;
     tap_action?: ActionConfig;
+    dbltap_action?: ActionConfig;
   },
-  hold: boolean
+  hold: boolean,
+  dblClick: boolean
 ): void => {
   let actionConfig: ActionConfig | undefined;
 
-  if (hold && config.hold_action) {
+  if (dblClick && config.dbltap_action) {
+    actionConfig = config.dbltap_action;
+  } else if (hold && config.hold_action) {
     actionConfig = config.hold_action;
   } else if (!hold && config.tap_action) {
     actionConfig = config.tap_action;
@@ -31,9 +35,13 @@ export const handleClick = (
 
   switch (actionConfig.action) {
     case "more-info":
-      if (config.entity) {
+      if (config.entity || config.camera_image) {
         fireEvent(node, "hass-more-info", {
-          entityId: config.entity
+          entityId: actionConfig.entity
+            ? actionConfig.entity
+            : config.entity
+            ? config.entity
+            : config.camera_image
         });
         if (actionConfig.haptic) forwardHaptic(node, actionConfig.haptic);
       }

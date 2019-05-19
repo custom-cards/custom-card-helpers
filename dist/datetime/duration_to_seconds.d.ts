@@ -1,1 +1,1 @@
-export default function durationToSeconds(duration: string): number;
+export declare function durationToSeconds(duration: string): number;

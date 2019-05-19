@@ -5,19 +5,23 @@ import { HomeAssistant } from "./types";
 // Check if config or Entity changed
 export function hasConfigOrEntityChanged(
   element: any,
-  changedProps: PropertyValues
+  changedProps: PropertyValues,
+  forceUpdate: Boolean,
 ): boolean {
-  if (changedProps.has("_config")) {
+  if (changedProps.has('config') || forceUpdate) {
     return true;
   }
 
-  const oldHass = changedProps.get("hass") as HomeAssistant | undefined;
-  if (oldHass) {
-    return (
-      oldHass.states[element._config!.entity] !==
-      element.hass!.states[element._config!.entity]
-    );
+  if (element.config!.entity) {
+    const oldHass = changedProps.get('hass') as HomeAssistant | undefined;
+    if (oldHass) {
+      return (
+        oldHass.states[element.config!.entity]
+        !== element.hass!.states[element.config!.entity]
+      );
+    }
+    return true;
+  } else {
+    return false;
   }
-
-  return true;
 }

@@ -1,6 +1,6 @@
 {
   "name": "custom-card-helpers",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Set of helpful functions and types for Custom Card creators",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
@@ -8,7 +8,8 @@
   "source": "src/index.ts",
   "scripts": {
     "dev": "microbundle watch",
-    "build": "microbundle"
+    "build": "microbundle",
+    "docs": "./node_modules/.bin/typedoc --out docs src --module commonjs --ignoreCompilerErrors"
   },
   "repository": {
     "type": "git",
@@ -29,10 +30,12 @@
   "dependencies": {
     "fecha": "^3.0.3",
     "home-assistant-js-websocket": "^4.1.2",
+    "intl-messageformat": "^2.2.0",
     "lit-element": "^2.1.0",
     "superstruct": "^0.6.0"
   },
   "devDependencies": {
-    "microbundle": "^0.11.0"
+    "microbundle": "^0.11.0",
+    "typedoc": "^0.14.2"
   }
 }

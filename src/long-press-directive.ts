@@ -9,7 +9,7 @@ const isTouch =
   navigator.maxTouchPoints > 0 ||
   navigator.msMaxTouchPoints > 0;
 
-interface LongPress extends HTMLElement {
+interface LongPressInterface extends HTMLElement {
   holdTime: number;
   bind(element: Element): void;
 }
@@ -17,7 +17,7 @@ interface LongPressElement extends Element {
   longPress?: boolean;
 }
 
-class LongPress extends HTMLElement implements LongPress {
+class LongPress extends HTMLElement implements LongPressInterface {
   public holdTime: number;
   protected ripple: any;
   protected timer: number | undefined;
@@ -161,17 +161,17 @@ class LongPress extends HTMLElement implements LongPress {
   }
 }
 
-if (!customElements.get("long-press-custom-card-helpers")) {
-  customElements.define("long-press-custom-card-helpers", LongPress);
+if (!customElements.get("long-press")) {
+  customElements.define("long-press", LongPress);
 }
 
 const getLongPress = (): LongPress => {
   const body = document.body;
-  if (body.querySelector("long-press-custom-card-helpers")) {
-    return body.querySelector("long-press-custom-card-helpers") as LongPress;
+  if (body.querySelector("long-press")) {
+    return body.querySelector("long-press") as LongPress;
   }
 
-  const longpress = document.createElement("long-press-custom-card-helpers");
+  const longpress = document.createElement("long-press");
   body.appendChild(longpress);
 
   return longpress as LongPress;

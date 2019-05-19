@@ -10,7 +10,7 @@ function toLocaleTimeStringSupportsOptions() {
   return false;
 }
 
-export default (toLocaleTimeStringSupportsOptions()
+export const formatTime = (toLocaleTimeStringSupportsOptions()
   ? (dateObj: Date, locales: string) =>
       dateObj.toLocaleTimeString(locales, {
         hour: "numeric",
