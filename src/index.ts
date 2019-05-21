@@ -25,3 +25,4 @@ export * from "./toggle-entity";
 export * from "./turn-on-off-entities"
 export * from "./turn-on-off-entity";
 export * from "./types";
+export * from "./get-lovelace";

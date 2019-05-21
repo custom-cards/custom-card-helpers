@@ -2,12 +2,10 @@ import { directive, PropertyPart } from "lit-html";
 // See https://github.com/home-assistant/home-assistant-polymer/pull/2457
 // on how to undo mwc -> paper migration
 // import "@material/mwc-ripple";
-// import "@polymer/paper-ripple";
 
-const isTouch =
-  "ontouchstart" in window ||
-  navigator.maxTouchPoints > 0 ||
-  navigator.msMaxTouchPoints > 0;
+const isTouch = "ontouchstart" in window
+  || navigator.maxTouchPoints > 0
+  || navigator.msMaxTouchPoints > 0;
 
 interface LongPressInterface extends HTMLElement {
   holdTime: number;
@@ -15,15 +13,29 @@ interface LongPressInterface extends HTMLElement {
 }
 interface LongPressElement extends Element {
   longPress?: boolean;
+  repeat?: number | undefined;
+  isRepeating?: boolean | undefined;
+  hasDblClick?: boolean | undefined;
 }
 
 class LongPress extends HTMLElement implements LongPressInterface {
   public holdTime: number;
+
   protected ripple: any;
+
   protected timer: number | undefined;
+
   protected held: boolean;
+
   protected cooldownStart: boolean;
+
   protected cooldownEnd: boolean;
+
+  private repeatTimeout: NodeJS.Timeout | undefined;
+
+  private dblClickTimeout: number | undefined;
+
+  private nbClicks: number;
 
   constructor() {
     super();
@@ -33,6 +45,7 @@ class LongPress extends HTMLElement implements LongPressInterface {
     this.held = false;
     this.cooldownStart = false;
     this.cooldownEnd = false;
+    this.nbClicks = 0;
   }
 
   public connectedCallback() {
@@ -66,12 +79,13 @@ class LongPress extends HTMLElement implements LongPressInterface {
           this.stopAnimation();
           this.timer = undefined;
         },
-        { passive: true }
+        { passive: true },
       );
     });
   }
 
   public bind(element: LongPressElement) {
+    /* eslint no-param-reassign: 0 */
     if (element.longPress) {
       return;
     }
@@ -107,6 +121,12 @@ class LongPress extends HTMLElement implements LongPressInterface {
       this.timer = window.setTimeout(() => {
         this.startAnimation(x, y);
         this.held = true;
+        if (element.repeat && !element.isRepeating) {
+          element.isRepeating = true;
+          this.repeatTimeout = setInterval(() => {
+            element.dispatchEvent(new Event("ha-hold"));
+          }, element.repeat);
+        }
       }, this.holdTime);
 
       this.cooldownStart = true;
@@ -115,17 +135,41 @@ class LongPress extends HTMLElement implements LongPressInterface {
 
     const clickEnd = (ev: Event) => {
       if (
-        this.cooldownEnd ||
-        (["touchend", "touchcancel"].includes(ev.type) &&
-          this.timer === undefined)
+        this.cooldownEnd
+        || (["touchend", "touchcancel"].includes(ev.type)
+          && this.timer === undefined)
       ) {
+        if (element.isRepeating && this.repeatTimeout) {
+          clearInterval(this.repeatTimeout);
+          element.isRepeating = false;
+        }
         return;
       }
       clearTimeout(this.timer);
+      if (element.isRepeating && this.repeatTimeout) {
+        clearInterval(this.repeatTimeout);
+      }
+      element.isRepeating = false;
       this.stopAnimation();
       this.timer = undefined;
       if (this.held) {
-        element.dispatchEvent(new Event("ha-hold"));
+        if (!element.repeat) {
+          element.dispatchEvent(new Event("ha-hold"));
+        }
+      } else if (element.hasDblClick) {
+        if (this.nbClicks === 0) {
+          this.nbClicks += 1;
+          this.dblClickTimeout = window.setTimeout(() => {
+            if (this.nbClicks === 1) {
+              this.nbClicks = 0;
+              element.dispatchEvent(new Event("ha-click"));
+            }
+          }, 250);
+        } else {
+          this.nbClicks = 0;
+          clearTimeout(this.dblClickTimeout);
+          element.dispatchEvent(new Event("ha-dblclick"));
+        }
       } else {
         element.dispatchEvent(new Event("ha-click"));
       }
@@ -161,17 +205,17 @@ class LongPress extends HTMLElement implements LongPressInterface {
   }
 }
 
-if (!customElements.get("long-press")) {
-  customElements.define("long-press", LongPress);
+if (!customElements.get("long-press-custom-card-helpers")) {
+  customElements.define("long-press-custom-card-helpers", LongPress);
 }
 
 const getLongPress = (): LongPress => {
   const body = document.body;
-  if (body.querySelector("long-press")) {
-    return body.querySelector("long-press") as LongPress;
+  if (body.querySelector("long-press-custom-card-helpers")) {
+    return body.querySelector("long-press-custom-card-helpers") as LongPress;
   }
 
-  const longpress = document.createElement("long-press");
+  const longpress = document.createElement("long-press-custom-card-helpers");
   body.appendChild(longpress);
 
   return longpress as LongPress;
