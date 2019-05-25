@@ -67,6 +67,10 @@ export const handleClick = (
         return;
       }
       const [domain, service] = actionConfig.service.split(".", 2);
+      const serviceData = { ...actionConfig.service_data };
+      if (serviceData.entity_id === 'entity') {
+        serviceData.entity_id = config.entity;
+      }
       hass.callService(domain, service, actionConfig.service_data);
       if (actionConfig.haptic) forwardHaptic(node, actionConfig.haptic);
     }
