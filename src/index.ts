@@ -18,7 +18,6 @@ export * from "./fire-event";
 export * from "./handle-click";
 export * from "./haptic";
 export * from "./has-changed";
-export * from "./long-press-directive";
 export * from "./navigate";
 export * from "./scroll-to-target";
 export * from "./toggle-entity";
