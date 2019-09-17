@@ -71,9 +71,9 @@ export const handleClick = (
     }
   }
  
-  if (actionConfig.haptic && actionConfig.haptic !== "none") {
+  if (actionConfig.haptic) {
     forwardHaptic(node, actionConfig.haptic);
-  } else if (!actionConfig.haptic) {
+  } else (!actionConfig.haptic) {
     forwardHaptic(node, "light");
   }
 };
