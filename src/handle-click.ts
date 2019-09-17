@@ -43,23 +43,19 @@ export const handleClick = (
               ? config.entity
               : config.camera_image
         });
-        if (actionConfig.haptic) forwardHaptic(node, actionConfig.haptic);
       }
       break;
     case "navigate":
       if (actionConfig.navigation_path) {
         navigate(node, actionConfig.navigation_path);
-        if (actionConfig.haptic) forwardHaptic(node, actionConfig.haptic);
       }
       break;
     case "url":
       actionConfig.url && window.open(actionConfig.url);
-      if (actionConfig.haptic) forwardHaptic(node, actionConfig.haptic);
       break;
     case "toggle":
       if (config.entity) {
         toggleEntity(hass, config.entity!);
-        if (actionConfig.haptic) forwardHaptic(node, actionConfig.haptic);
       }
       break;
     case "call-service": {
@@ -72,7 +68,12 @@ export const handleClick = (
         serviceData.entity_id = config.entity;
       }
       hass.callService(domain, service, serviceData);
-      if (actionConfig.haptic) forwardHaptic(node, actionConfig.haptic);
     }
+  }
+ 
+  if (actionConfig.haptic && actionConfig.haptic !== "none") {
+    forwardHaptic(node, actionConfig.haptic);
+  } else if (!actionConfig.haptic) {
+    forwardHaptic(node, "light");
   }
 };
