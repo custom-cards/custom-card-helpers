@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MFAModule | custom-card-helpers</title>
+	<title>BaseActionConfig | custom-card-helpers</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_types_.html">&quot;types&quot;</a>
 				</li>
 				<li>
-					<a href="_types_.mfamodule.html">MFAModule</a>
+					<a href="_types_.baseactionconfig.html">BaseActionConfig</a>
 				</li>
 			</ul>
-			<h1>Interface MFAModule</h1>
+			<h1>Interface BaseActionConfig</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,30 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">MFAModule</span>
+						<span class="target">BaseActionConfig</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="_types_.toggleactionconfig.html" class="tsd-signature-type">ToggleActionConfig</a>
+							</li>
+							<li>
+								<a href="_types_.togglemenuactionconfig.html" class="tsd-signature-type">ToggleMenuActionConfig</a>
+							</li>
+							<li>
+								<a href="_types_.callserviceactionconfig.html" class="tsd-signature-type">CallServiceActionConfig</a>
+							</li>
+							<li>
+								<a href="_types_.navigateactionconfig.html" class="tsd-signature-type">NavigateActionConfig</a>
+							</li>
+							<li>
+								<a href="_types_.moreinfoactionconfig.html" class="tsd-signature-type">MoreInfoActionConfig</a>
+							</li>
+							<li>
+								<a href="_types_.urlactionconfig.html" class="tsd-signature-type">UrlActionConfig</a>
+							</li>
+							<li>
+								<a href="_types_.noactionconfig.html" class="tsd-signature-type">NoActionConfig</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -84,9 +107,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.mfamodule.html#enabled" class="tsd-kind-icon">enabled</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.mfamodule.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.mfamodule.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.baseactionconfig.html#confirmation" class="tsd-kind-icon">confirmation</a></li>
 							</ul>
 						</section>
 					</div>
@@ -95,32 +116,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="enabled" class="tsd-anchor"></a>
-					<h3>enabled</h3>
-					<div class="tsd-signature tsd-kind-icon">enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="confirmation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> confirmation</h3>
+					<div class="tsd-signature tsd-kind-icon">confirmation<span class="tsd-signature-symbol">:</span> <a href="_types_.confirmationrestrictionconfig.html" class="tsd-signature-type">ConfirmationRestrictionConfig</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/bffc68e/src/types.ts#L128">types.ts:128</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/bffc68e/src/types.ts#L126">types.ts:126</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/bffc68e/src/types.ts#L127">types.ts:127</a></li>
+							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/bffc68e/src/types.ts#L70">types.ts:70</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -144,9 +145,18 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="_types_.baseactionconfig.html" class="tsd-kind-icon">Base<wbr>Action<wbr>Config</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_types_.baseactionconfig.html#confirmation" class="tsd-kind-icon">confirmation</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="_types_.callserviceactionconfig.html" class="tsd-kind-icon">Call<wbr>Service<wbr>Action<wbr>Config</a>
 					</li>
@@ -168,24 +178,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="_types_.lovelacecardconfig.html" class="tsd-kind-icon">Lovelace<wbr>Card<wbr>Config</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="_types_.mfamodule.html" class="tsd-kind-icon">MFAModule</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.mfamodule.html#enabled" class="tsd-kind-icon">enabled</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.mfamodule.html#id" class="tsd-kind-icon">id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.mfamodule.html#name" class="tsd-kind-icon">name</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="_types_.moreinfoactionconfig.html" class="tsd-kind-icon">More<wbr>Info<wbr>Action<wbr>Config</a>
 					</li>

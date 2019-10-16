@@ -8,19 +8,19 @@ import {
 } from "home-assistant-js-websocket";
 import { HapticType } from "./haptic";
 
-export interface ToggleActionConfig {
+export interface ToggleActionConfig extends BaseActionConfig {
   action: "toggle";
   repeat?: number;
   haptic?: HapticType;
 }
 
-export interface ToggleMenuActionConfig {
+export interface ToggleMenuActionConfig extends BaseActionConfig {
   action: "toggle-menu";
   repeat?: number;
   haptic?: HapticType;
 }
 
-export interface CallServiceActionConfig {
+export interface CallServiceActionConfig extends BaseActionConfig {
   action: "call-service";
   repeat?: number;
   haptic?: HapticType;
@@ -31,28 +31,28 @@ export interface CallServiceActionConfig {
   };
 }
 
-export interface NavigateActionConfig {
+export interface NavigateActionConfig extends BaseActionConfig {
   action: "navigate";
   repeat?: number;
   haptic?: HapticType;
   navigation_path: string;
 }
 
-export interface MoreInfoActionConfig {
+export interface MoreInfoActionConfig extends BaseActionConfig {
   action: "more-info";
   repeat?: number;
   haptic?: HapticType;
   entity?: string;
 }
 
-export interface UrlActionConfig {
+export interface UrlActionConfig extends BaseActionConfig {
   action: "url";
   repeat?: number;
   haptic?: HapticType;
-  url: string;
+  url_path: string;
 }
 
-export interface NoActionConfig {
+export interface NoActionConfig extends BaseActionConfig {
   action: "none";
   repeat?: number;
 }
@@ -65,6 +65,19 @@ export type ActionConfig =
   | MoreInfoActionConfig
   | UrlActionConfig
   | NoActionConfig;
+
+export interface BaseActionConfig {
+  confirmation?: ConfirmationRestrictionConfig;
+}
+
+export interface ConfirmationRestrictionConfig {
+  text?: string;
+  exemptions?: RestrictionConfig[];
+}
+
+export interface RestrictionConfig {
+  user: string;
+}
 
 export interface Window {
   // Custom panel entry point url
@@ -206,4 +219,18 @@ export interface HomeAssistant {
   ) => Promise<Response>;
   sendWS: (msg: MessageBase) => Promise<void>;
   callWS: <T>(msg: MessageBase) => Promise<T>;
+}
+
+export interface LovelaceCardConfig {
+  index?: number;
+  view_index?: number;
+  type: string;
+  [key: string]: any;
+}
+
+export interface LovelaceCard extends HTMLElement {
+  hass?: HomeAssistant;
+  isPanel?: boolean;
+  getCardSize(): number;
+  setConfig(config: LovelaceCardConfig): void;
 }

@@ -12,15 +12,15 @@ export const handleClick = (
     camera_image?: string;
     hold_action?: ActionConfig;
     tap_action?: ActionConfig;
-    dbltap_action?: ActionConfig;
+    double_tap_action?: ActionConfig;
   },
   hold: boolean,
   dblClick: boolean
 ): void => {
   let actionConfig: ActionConfig | undefined;
 
-  if (dblClick && config.dbltap_action) {
-    actionConfig = config.dbltap_action;
+  if (dblClick && config.double_tap_action) {
+    actionConfig = config.double_tap_action;
   } else if (hold && config.hold_action) {
     actionConfig = config.hold_action;
   } else if (!hold && config.tap_action) {
@@ -33,6 +33,23 @@ export const handleClick = (
     };
   }
 
+  if (
+    actionConfig.confirmation &&
+    (!actionConfig.confirmation.exemptions ||
+      !actionConfig.confirmation.exemptions.some(
+        e => e.user === hass!.user!.id
+      ))
+  ) {
+    if (
+      !confirm(
+        actionConfig.confirmation.text ||
+          `Are you sure you want to ${actionConfig.action}?`
+      )
+    ) {
+      return;
+    }
+  }
+
   switch (actionConfig.action) {
     case "more-info":
       if (config.entity || config.camera_image) {
@@ -40,8 +57,8 @@ export const handleClick = (
           entityId: actionConfig.entity
             ? actionConfig.entity
             : config.entity
-              ? config.entity
-              : config.camera_image
+            ? config.entity
+            : config.camera_image
         });
         if (actionConfig.haptic) forwardHaptic(node, actionConfig.haptic);
       }
@@ -53,7 +70,7 @@ export const handleClick = (
       }
       break;
     case "url":
-      actionConfig.url && window.open(actionConfig.url);
+      actionConfig.url_path && window.open(actionConfig.url_path);
       if (actionConfig.haptic) forwardHaptic(node, actionConfig.haptic);
       break;
     case "toggle":
@@ -68,7 +85,7 @@ export const handleClick = (
       }
       const [domain, service] = actionConfig.service.split(".", 2);
       const serviceData = { ...actionConfig.service_data };
-      if (serviceData.entity_id === 'entity') {
+      if (serviceData.entity_id === "entity") {
         serviceData.entity_id = config.entity;
       }
       hass.callService(domain, service, serviceData);

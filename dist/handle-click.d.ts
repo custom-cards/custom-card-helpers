@@ -4,5 +4,5 @@ export declare const handleClick: (node: HTMLElement, hass: HomeAssistant, confi
     camera_image?: string;
     hold_action?: ActionConfig;
     tap_action?: ActionConfig;
-    dbltap_action?: ActionConfig;
+    double_tap_action?: ActionConfig;
 }, hold: boolean, dblClick: boolean) => void;
