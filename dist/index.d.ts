@@ -15,6 +15,7 @@ export * from "./compute-state-domain";
 export * from "./const";
 export * from "./create-thing";
 export * from "./domain_icons";
+export * from "./evaluate-filter";
 export * from "./fire-event";
 export * from "./handle-click";
 export * from "./haptic";
