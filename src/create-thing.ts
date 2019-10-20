@@ -20,15 +20,13 @@ export const createThing = cardConfig => {
     return element;
   };
 
-  if (
-    !cardConfig ||
-    typeof cardConfig !== "object" ||
-    !cardConfig.type ||
-    !cardConfig.type.startsWith("custom:")
-  )
-    return _createError("No type configured", cardConfig);
-
-  const tag = cardConfig.type.substr("custom:".length);
+  if (!cardConfig || typeof cardConfig !== 'object' || !cardConfig.type)
+    return _createError('No type defined', cardConfig);
+  let tag = cardConfig.type;
+  if (tag.startsWith('custom:'))
+    tag = tag.substr('custom:'.length);
+  else
+    tag = `hui-${tag}-card`;
 
   if (customElements.get(tag)) return _createThing(tag, cardConfig);
 
