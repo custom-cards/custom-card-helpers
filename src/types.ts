@@ -131,6 +131,7 @@ export interface MFAModule {
 export interface CurrentUser {
   id: string;
   is_owner: boolean;
+  is_admin: boolean;
   name: string;
   credentials: Credential[];
   mfa_modules: MFAModule[];
