@@ -1,1 +1,1 @@
-export declare const createThing: (cardConfig: any) => any;
+export declare const createThing: (cardConfig: any, isRow?: boolean) => any;

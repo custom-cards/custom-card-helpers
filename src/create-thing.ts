@@ -1,12 +1,50 @@
 import { fireEvent } from "./fire-event";
 
-export const createThing = cardConfig => {
+const SPECIAL_TYPES = new Set([
+  "call-service",
+  "divider",
+  "section",
+  "weblink",
+  "cast",
+  "select"
+]);
+const DOMAIN_TO_ELEMENT_TYPE = {
+  alert: "toggle",
+  automation: "toggle",
+  climate: "climate",
+  cover: "cover",
+  fan: "toggle",
+  group: "group",
+  input_boolean: "toggle",
+  input_number: "input-number",
+  input_select: "input-select",
+  input_text: "input-text",
+  light: "toggle",
+  lock: "lock",
+  media_player: "media-player",
+  remote: "toggle",
+  scene: "scene",
+  script: "script",
+  sensor: "sensor",
+  timer: "timer",
+  switch: "toggle",
+  vacuum: "toggle",
+  // Temporary. Once climate is rewritten,
+  // water heater should get it's own row.
+  water_heater: "climate",
+  input_datetime: "input-datetime"
+};
+
+export const createThing = (cardConfig, isRow = false) => {
   const _createError = (error, config) => {
-    return _createThing("hui-error-card", {
-      type: "error",
-      error,
-      config
-    });
+    return _createThing(
+      "hui-error-card",
+      {
+        type: "error",
+        error,
+        config
+      }
+    );
   };
 
   const _createThing = (tag, config) => {
@@ -20,13 +58,25 @@ export const createThing = cardConfig => {
     return element;
   };
 
-  if (!cardConfig || typeof cardConfig !== 'object' || !cardConfig.type)
-    return _createError('No type defined', cardConfig);
+  if (!cardConfig || typeof cardConfig !== "object" || (!isRow && !cardConfig.type))
+    return _createError("No type defined", cardConfig);
   let tag = cardConfig.type;
-  if (tag.startsWith('custom:'))
-    tag = tag.substr('custom:'.length);
-  else
+  if (tag && tag.startsWith("custom:")) {
+    tag = tag.substr("custom:".length);
+  } else if (isRow) {
+    if (SPECIAL_TYPES.has(tag)) {
+      tag = `hui-${tag}-row`;
+    } else {
+      if (!cardConfig.entity) {
+        return _createError("Invalid config given.", cardConfig);
+      }
+    
+      const domain = cardConfig.entity.split(".", 1)[0];
+      tag = `hui-${DOMAIN_TO_ELEMENT_TYPE[domain] || "text"}-entity-row`;
+    }
+  } else {
     tag = `hui-${tag}-card`;
+  }
 
   if (customElements.get(tag)) return _createThing(tag, cardConfig);
 
