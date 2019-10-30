@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;compute-rtl&quot; | custom-card-helpers</title>
+	<title>&quot;handle-action&quot; | custom-card-helpers</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_compute_rtl_.html">&quot;compute-rtl&quot;</a>
+					<a href="_handle_action_.html">&quot;handle-action&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;compute-rtl&quot;</h1>
+			<h1>External module &quot;handle-action&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -73,8 +73,7 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_compute_rtl_.html#computertl" class="tsd-kind-icon">computeRTL</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_compute_rtl_.html#computertldirection" class="tsd-kind-icon">computeRTLDirection</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_handle_action_.html#handleaction" class="tsd-kind-icon">handle<wbr>Action</a></li>
 							</ul>
 						</section>
 					</div>
@@ -83,51 +82,51 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="computertl" class="tsd-anchor"></a>
-					<h3>computeRTL</h3>
+					<a name="handleaction" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> handle<wbr>Action</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">computeRTL<span class="tsd-signature-symbol">(</span>hass<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_.homeassistant.html" class="tsd-signature-type">HomeAssistant</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">handle<wbr>Action<span class="tsd-signature-symbol">(</span>node<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, hass<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_.homeassistant.html" class="tsd-signature-type">HomeAssistant</a>, config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, action<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/dcdcba3/src/compute-rtl.ts#L3">compute-rtl.ts:3</a></li>
+									<li>Defined in handle-action.ts:8</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>hass: <a href="../interfaces/_types_.homeassistant.html" class="tsd-signature-type">HomeAssistant</a></h5>
+									<h5>node: <span class="tsd-signature-type">HTMLElement</span></h5>
 								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="computertldirection" class="tsd-anchor"></a>
-					<h3>computeRTLDirection</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">computeRTLDirection<span class="tsd-signature-symbol">(</span>hass<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_.homeassistant.html" class="tsd-signature-type">HomeAssistant</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"rtl"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ltr"</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/dcdcba3/src/compute-rtl.ts#L11">compute-rtl.ts:11</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
 								<li>
 									<h5>hass: <a href="../interfaces/_types_.homeassistant.html" class="tsd-signature-type">HomeAssistant</a></h5>
 								</li>
+								<li>
+									<h5>config: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> camera_<wbr>image<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> double_<wbr>tap_<wbr>action<span class="tsd-signature-symbol">?: </span><a href="_types_.html#actionconfig" class="tsd-signature-type">ActionConfig</a></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> entity<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> hold_<wbr>action<span class="tsd-signature-symbol">?: </span><a href="_types_.html#actionconfig" class="tsd-signature-type">ActionConfig</a></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> tap_<wbr>action<span class="tsd-signature-symbol">?: </span><a href="_types_.html#actionconfig" class="tsd-signature-type">ActionConfig</a></h5>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5>action: <span class="tsd-signature-type">string</span></h5>
+								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">"rtl"</span>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">"ltr"</span>
-							</h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -140,17 +139,14 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_compute_rtl_.html">"compute-<wbr>rtl"</a>
+						<a href="_handle_action_.html">"handle-<wbr>action"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_compute_rtl_.html#computertl" class="tsd-kind-icon">computeRTL</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_compute_rtl_.html#computertldirection" class="tsd-kind-icon">computeRTLDirection</a>
+						<a href="_handle_action_.html#handleaction" class="tsd-kind-icon">handle<wbr>Action</a>
 					</li>
 				</ul>
 			</nav>

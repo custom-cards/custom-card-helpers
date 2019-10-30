@@ -1,8 +1,9 @@
-import { fireEvent } from "./fire-event";
+import { HASSDomEvent, fireEvent } from "./fire-event";
 
 /**
- * Utility function that enables haptic feedback
+ * Broadcast haptic feedback requests
  */
+
 
 // Allowed types are from iOS HIG.
 // https://developer.apple.com/design/human-interface-guidelines/ios/user-interaction/feedback/#haptics
@@ -21,8 +22,12 @@ declare global {
   interface HASSDomEvents {
     haptic: HapticType;
   }
+
+  interface GlobalEventHandlersEventMap {
+    haptic: HASSDomEvent<HapticType>;
+  }
 }
 
-export const forwardHaptic = (el: HTMLElement, hapticType: HapticType) => {
-  fireEvent(el, "haptic", hapticType);
+export const forwardHaptic = (hapticType: HapticType) => {
+  fireEvent(window, "haptic", hapticType);
 };

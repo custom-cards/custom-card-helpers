@@ -1629,10 +1629,10 @@ highlight.js@^9.13.1:
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.15.6.tgz#72d4d8d779ec066af9a17cb14360c3def0aa57c4"
   integrity sha512-zozTAWM1D6sozHo8kqhfYgsac+B+q0PmsjXeyDrYIHHcBN0zTVT66+s2GW1GZv7DbyaROdLXKdabwS/WqPyIdQ==
 
-home-assistant-js-websocket@^4.1.2:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/home-assistant-js-websocket/-/home-assistant-js-websocket-4.1.2.tgz#dbcdb4b67df8d189d29bbf5603771d5bc80ef031"
-  integrity sha512-/I0m6FTDEq3LkzFc4tmgHJHTj9gWA6Wn/fgaa1ghIJJY0Yqb3x6whovN5pRNFsl6bnKzOCR+nmJ2ruVTBa5mVQ==
+home-assistant-js-websocket@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/home-assistant-js-websocket/-/home-assistant-js-websocket-4.4.0.tgz#676229112a2357b054ec26ed0f186940757bc826"
+  integrity sha512-B/7nDtlVv3Cz0PVteGjmpGI+Ksw+9Lf4VOM+dlMG1LErCH9uOJlLQV7vswx+7bzeGMuB9YeRDb64lqjoR0zpPg==
 
 hsl-regex@^1.0.0:
   version "1.0.0"

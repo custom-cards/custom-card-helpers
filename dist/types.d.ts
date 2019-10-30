@@ -80,6 +80,7 @@ declare global {
         "location-changed": {
             replace: boolean;
         };
+        "show-dialog": {};
         undefined: any;
     }
 }
