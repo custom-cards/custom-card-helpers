@@ -236,3 +236,13 @@ export interface LovelaceCard extends HTMLElement {
   getCardSize(): number;
   setConfig(config: LovelaceCardConfig): void;
 }
+
+export interface LovelaceElement extends HTMLElement {
+  hass?: HomeAssistant;
+  setConfig(config: LovelaceElementConfig): void;
+}
+
+export interface LovelaceElementConfig {
+  type?: string;
+  style?: object;
+}
