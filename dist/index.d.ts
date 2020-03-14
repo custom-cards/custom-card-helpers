@@ -28,3 +28,4 @@ export * from "./turn-on-off-entities";
 export * from "./turn-on-off-entity";
 export * from "./types";
 export * from "./get-lovelace";
+export * from "./state_icon";

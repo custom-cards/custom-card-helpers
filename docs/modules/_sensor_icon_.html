@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;compute-domain&quot; | custom-card-helpers</title>
+	<title>&quot;sensor_icon&quot; | custom-card-helpers</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_compute_domain_.html">&quot;compute-domain&quot;</a>
+					<a href="_sensor_icon_.html">&quot;sensor_icon&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;compute-domain&quot;</h1>
+			<h1>External module &quot;sensor_icon&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,13 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_compute_domain_.html#computedomain" class="tsd-kind-icon">compute<wbr>Domain</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_sensor_icon_.html#sensoricon" class="tsd-kind-icon">sensor<wbr>Icon</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported"><a href="_sensor_icon_.html#fixeddeviceclassicons" class="tsd-kind-icon">fixed<wbr>Device<wbr>Class<wbr>Icons</a></li>
 							</ul>
 						</section>
 					</div>
@@ -82,27 +88,100 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="computedomain" class="tsd-anchor"></a>
-					<h3>compute<wbr>Domain</h3>
+					<a name="sensoricon" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> sensor<wbr>Icon</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">compute<wbr>Domain<span class="tsd-signature-symbol">(</span>entityId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">sensor<wbr>Icon<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HassEntity</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/compute-domain.ts#L1">src/compute-domain.ts:1</a></li>
+									<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/sensor_icon.ts#L15">src/sensor_icon.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>entityId: <span class="tsd-signature-type">string</span></h5>
+									<h5>state: <span class="tsd-signature-type">HassEntity</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="fixeddeviceclassicons" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> fixed<wbr>Device<wbr>Class<wbr>Icons</h3>
+					<div class="tsd-signature tsd-kind-icon">fixed<wbr>Device<wbr>Class<wbr>Icons<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/sensor_icon.ts#L6">src/sensor_icon.ts:6</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="fixeddeviceclassicons.humidity" class="tsd-anchor"></a>
+						<h3>humidity</h3>
+						<div class="tsd-signature tsd-kind-icon">humidity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;hass:water-percent&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/sensor_icon.ts#L7">src/sensor_icon.ts:7</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="fixeddeviceclassicons.illuminance" class="tsd-anchor"></a>
+						<h3>illuminance</h3>
+						<div class="tsd-signature tsd-kind-icon">illuminance<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;hass:brightness-5&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/sensor_icon.ts#L8">src/sensor_icon.ts:8</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="fixeddeviceclassicons.power" class="tsd-anchor"></a>
+						<h3>power</h3>
+						<div class="tsd-signature tsd-kind-icon">power<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;hass:flash&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/sensor_icon.ts#L11">src/sensor_icon.ts:11</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="fixeddeviceclassicons.pressure" class="tsd-anchor"></a>
+						<h3>pressure</h3>
+						<div class="tsd-signature tsd-kind-icon">pressure<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;hass:gauge&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/sensor_icon.ts#L10">src/sensor_icon.ts:10</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="fixeddeviceclassicons.signal_strength" class="tsd-anchor"></a>
+						<h3>signal_<wbr>strength</h3>
+						<div class="tsd-signature tsd-kind-icon">signal_<wbr>strength<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;hass:wifi&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/sensor_icon.ts#L12">src/sensor_icon.ts:12</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="fixeddeviceclassicons.temperature" class="tsd-anchor"></a>
+						<h3>temperature</h3>
+						<div class="tsd-signature tsd-kind-icon">temperature<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;hass:thermometer&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/sensor_icon.ts#L9">src/sensor_icon.ts:9</a></li>
+							</ul>
+						</aside>
+					</section>
 				</section>
 			</section>
 		</div>
@@ -113,14 +192,17 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_compute_domain_.html">&quot;compute-<wbr>domain&quot;</a>
+						<a href="_sensor_icon_.html">&quot;sensor_<wbr>icon&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_compute_domain_.html#computedomain" class="tsd-kind-icon">compute<wbr>Domain</a>
+						<a href="_sensor_icon_.html#sensoricon" class="tsd-kind-icon">sensor<wbr>Icon</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_sensor_icon_.html#fixeddeviceclassicons" class="tsd-kind-icon">fixed<wbr>Device<wbr>Class<wbr>Icons</a>
 					</li>
 				</ul>
 			</nav>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;compute-domain&quot; | custom-card-helpers</title>
+	<title>&quot;state_icon&quot; | custom-card-helpers</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_compute_domain_.html">&quot;compute-domain&quot;</a>
+					<a href="_state_icon_.html">&quot;state_icon&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;compute-domain&quot;</h1>
+			<h1>External module &quot;state_icon&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,13 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_compute_domain_.html#computedomain" class="tsd-kind-icon">compute<wbr>Domain</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_state_icon_.html#stateicon" class="tsd-kind-icon">state<wbr>Icon</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported"><a href="_state_icon_.html#domainicons" class="tsd-kind-icon">domain<wbr>Icons</a></li>
 							</ul>
 						</section>
 					</div>
@@ -82,27 +88,80 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="computedomain" class="tsd-anchor"></a>
-					<h3>compute<wbr>Domain</h3>
+					<a name="stateicon" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> state<wbr>Icon</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">compute<wbr>Domain<span class="tsd-signature-symbol">(</span>entityId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">state<wbr>Icon<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HassEntity</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/compute-domain.ts#L1">src/compute-domain.ts:1</a></li>
+									<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/state_icon.ts#L17">src/state_icon.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>entityId: <span class="tsd-signature-type">string</span></h5>
+									<h5>state: <span class="tsd-signature-type">HassEntity</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="domainicons" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> domain<wbr>Icons</h3>
+					<div class="tsd-signature tsd-kind-icon">domain<wbr>Icons<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/state_icon.ts#L10">src/state_icon.ts:10</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="domainicons.binary_sensor" class="tsd-anchor"></a>
+						<h3>binary_<wbr>sensor</h3>
+						<div class="tsd-signature tsd-kind-icon">binary_<wbr>sensor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">binarySensorIcon</span><span class="tsd-signature-symbol"> = binarySensorIcon</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/state_icon.ts#L11">src/state_icon.ts:11</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="domainicons.cover" class="tsd-anchor"></a>
+						<h3>cover</h3>
+						<div class="tsd-signature tsd-kind-icon">cover<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">coverIcon</span><span class="tsd-signature-symbol"> = coverIcon</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/state_icon.ts#L12">src/state_icon.ts:12</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="domainicons.input_datetime" class="tsd-anchor"></a>
+						<h3>input_<wbr>datetime</h3>
+						<div class="tsd-signature tsd-kind-icon">input_<wbr>datetime<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">inputDateTimeIcon</span><span class="tsd-signature-symbol"> = inputDateTimeIcon</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/state_icon.ts#L14">src/state_icon.ts:14</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="domainicons.sensor" class="tsd-anchor"></a>
+						<h3>sensor</h3>
+						<div class="tsd-signature tsd-kind-icon">sensor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">sensorIcon</span><span class="tsd-signature-symbol"> = sensorIcon</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/6590dac/src/state_icon.ts#L13">src/state_icon.ts:13</a></li>
+							</ul>
+						</aside>
+					</section>
 				</section>
 			</section>
 		</div>
@@ -113,14 +172,17 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_compute_domain_.html">&quot;compute-<wbr>domain&quot;</a>
+						<a href="_state_icon_.html">&quot;state_<wbr>icon&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_compute_domain_.html#computedomain" class="tsd-kind-icon">compute<wbr>Domain</a>
+						<a href="_state_icon_.html#stateicon" class="tsd-kind-icon">state<wbr>Icon</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_state_icon_.html#domainicons" class="tsd-kind-icon">domain<wbr>Icons</a>
 					</li>
 				</ul>
 			</nav>
