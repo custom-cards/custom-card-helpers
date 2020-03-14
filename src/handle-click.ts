@@ -52,7 +52,7 @@ export const handleClick = (
 
   switch (actionConfig.action) {
     case "more-info":
-      if (config.entity || config.camera_image) {
+      if (actionConfig.entity || config.entity || config.camera_image) {
         fireEvent(node, "hass-more-info", {
           entityId: actionConfig.entity
             ? actionConfig.entity
