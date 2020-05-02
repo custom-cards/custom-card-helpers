@@ -21,7 +21,7 @@ export interface HASSDomEvent<T> extends Event {
  *  `node` on which to fire the event (HTMLElement, defaults to `this`).
  * @return {Event} The new event that was fired.
  */
-export declare const fireEvent: <HassEvent extends "undefined" | "haptic" | "value-changed" | "config-changed" | "hass-more-info" | "ll-rebuild" | "location-changed" | "show-dialog">(node: HTMLElement | Window, type: HassEvent, detail?: HASSDomEvents[HassEvent], options?: {
+export declare const fireEvent: <HassEvent extends "undefined" | "haptic" | "value-changed" | "config-changed" | "hass-more-info" | "ll-rebuild" | "location-changed" | "show-dialog" | "action">(node: HTMLElement | Window, type: HassEvent, detail?: HASSDomEvents[HassEvent], options?: {
     bubbles?: boolean;
     cancelable?: boolean;
     composed?: boolean;

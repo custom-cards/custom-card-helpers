@@ -119,6 +119,9 @@ declare global {
     };
     "show-dialog": {};
     undefined;
+    "action": {
+      action: string;
+    }
   }
 }
 

@@ -89,6 +89,9 @@ declare global {
         };
         "show-dialog": {};
         undefined: any;
+        "action": {
+            action: string;
+        };
     }
 }
 export declare type LocalizeFunc = (key: string, ...args: any[]) => string;
