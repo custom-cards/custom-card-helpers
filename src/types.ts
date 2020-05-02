@@ -284,3 +284,8 @@ export interface ActionHandlerDetail {
 }
 
 export type ActionHandlerEvent = HASSDomEvent<ActionHandlerDetail>;
+
+export interface ActionHandlerOptions {
+  hasHold?: boolean;
+  hasDoubleClick?: boolean;
+}

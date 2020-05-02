@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>UrlActionConfig | custom-card-helpers</title>
+	<title>ActionHandlerOptions | custom-card-helpers</title>
 	<meta name="description" content="Documentation for custom-card-helpers">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_types_.html">&quot;types&quot;</a>
 				</li>
 				<li>
-					<a href="_types_.urlactionconfig.html">UrlActionConfig</a>
+					<a href="_types_.actionhandleroptions.html">ActionHandlerOptions</a>
 				</li>
 			</ul>
-			<h1>Interface UrlActionConfig</h1>
+			<h1>Interface ActionHandlerOptions</h1>
 		</div>
 	</div>
 </header>
@@ -73,12 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_types_.baseactionconfig.html" class="tsd-signature-type">BaseActionConfig</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">UrlActionConfig</span>
-							</li>
-						</ul>
+						<span class="target">ActionHandlerOptions</span>
 					</li>
 				</ul>
 			</section>
@@ -89,11 +84,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.urlactionconfig.html#action" class="tsd-kind-icon">action</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_types_.urlactionconfig.html#confirmation" class="tsd-kind-icon">confirmation</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.urlactionconfig.html#haptic" class="tsd-kind-icon">haptic</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.urlactionconfig.html#repeat" class="tsd-kind-icon">repeat</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.urlactionconfig.html#url_path" class="tsd-kind-icon">url_<wbr>path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.actionhandleroptions.html#hasdoubleclick" class="tsd-kind-icon">has<wbr>Double<wbr>Click</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.actionhandleroptions.html#hashold" class="tsd-kind-icon">has<wbr>Hold</a></li>
 							</ul>
 						</section>
 					</div>
@@ -102,53 +94,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="action" class="tsd-anchor"></a>
-					<h3>action</h3>
-					<div class="tsd-signature tsd-kind-icon">action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"url"</span></div>
+					<a name="hasdoubleclick" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> has<wbr>Double<wbr>Click</h3>
+					<div class="tsd-signature tsd-kind-icon">has<wbr>Double<wbr>Click<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/4b8c0c0/src/types.ts#L43">src/types.ts:43</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="confirmation" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> confirmation</h3>
-					<div class="tsd-signature tsd-kind-icon">confirmation<span class="tsd-signature-symbol">:</span> <a href="_types_.confirmationrestrictionconfig.html" class="tsd-signature-type">ConfirmationRestrictionConfig</a></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_types_.togglemenuactionconfig.html">ToggleMenuActionConfig</a>.<a href="_types_.togglemenuactionconfig.html#confirmation">confirmation</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/4b8c0c0/src/types.ts#L69">src/types.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/4b8c0c0/src/types.ts#L290">src/types.ts:290</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="haptic" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> haptic</h3>
-					<div class="tsd-signature tsd-kind-icon">haptic<span class="tsd-signature-symbol">:</span> <a href="../modules/_haptic_.html#haptictype" class="tsd-signature-type">HapticType</a></div>
+					<a name="hashold" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> has<wbr>Hold</h3>
+					<div class="tsd-signature tsd-kind-icon">has<wbr>Hold<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/4b8c0c0/src/types.ts#L46">src/types.ts:46</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="repeat" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> repeat</h3>
-					<div class="tsd-signature tsd-kind-icon">repeat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/4b8c0c0/src/types.ts#L45">src/types.ts:45</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="url_path" class="tsd-anchor"></a>
-					<h3>url_<wbr>path</h3>
-					<div class="tsd-signature tsd-kind-icon">url_<wbr>path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/4b8c0c0/src/types.ts#L44">src/types.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/4b8c0c0/src/types.ts#L289">src/types.ts:289</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -175,9 +136,21 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.actionhandlerdetail.html" class="tsd-kind-icon">Action<wbr>Handler<wbr>Detail</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.actionhandleroptions.html" class="tsd-kind-icon">Action<wbr>Handler<wbr>Options</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_types_.actionhandleroptions.html#hasdoubleclick" class="tsd-kind-icon">has<wbr>Double<wbr>Click</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_types_.actionhandleroptions.html#hashold" class="tsd-kind-icon">has<wbr>Hold</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.baseactionconfig.html" class="tsd-kind-icon">Base<wbr>Action<wbr>Config</a>
 					</li>
@@ -259,30 +232,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.translation.html" class="tsd-kind-icon">Translation</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.urlactionconfig.html" class="tsd-kind-icon">Url<wbr>Action<wbr>Config</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.urlactionconfig.html#action" class="tsd-kind-icon">action</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_types_.urlactionconfig.html#confirmation" class="tsd-kind-icon">confirmation</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.urlactionconfig.html#haptic" class="tsd-kind-icon">haptic</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.urlactionconfig.html#repeat" class="tsd-kind-icon">repeat</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.urlactionconfig.html#url_path" class="tsd-kind-icon">url_<wbr>path</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.window.html" class="tsd-kind-icon">Window</a>
 					</li>
