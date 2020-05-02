@@ -8,63 +8,61 @@ import {
 } from "home-assistant-js-websocket";
 import { HapticType } from "./haptic";
 
-export interface ToggleActionConfig extends BaseActionConfig {
-  action: "toggle";
-  repeat?: number;
-  haptic?: HapticType;
-}
-
 export interface ToggleMenuActionConfig extends BaseActionConfig {
   action: "toggle-menu";
   repeat?: number;
   haptic?: HapticType;
 }
 
-export interface CallServiceActionConfig extends BaseActionConfig {
-  action: "call-service";
+export interface ToggleActionConfig extends BaseActionConfig {
+  action: "toggle";
   repeat?: number;
   haptic?: HapticType;
+}
+
+export interface CallServiceActionConfig extends BaseActionConfig {
+  action: "call-service";
   service: string;
   service_data?: {
     entity_id?: string | [string];
     [key: string]: any;
   };
+  repeat?: number;
+  haptic?: HapticType;
 }
 
 export interface NavigateActionConfig extends BaseActionConfig {
   action: "navigate";
-  repeat?: number;
-  haptic?: HapticType;
   navigation_path: string;
-}
-
-export interface MoreInfoActionConfig extends BaseActionConfig {
-  action: "more-info";
   repeat?: number;
   haptic?: HapticType;
-  entity?: string;
 }
 
 export interface UrlActionConfig extends BaseActionConfig {
   action: "url";
+  url_path: string;
   repeat?: number;
   haptic?: HapticType;
-  url_path: string;
+}
+
+export interface MoreInfoActionConfig extends BaseActionConfig {
+  action: "more-info";
+  entity?: string;
+  repeat?: number;
+  haptic?: HapticType;
 }
 
 export interface NoActionConfig extends BaseActionConfig {
   action: "none";
   repeat?: number;
+  haptic?: HapticType;
 }
 
-export type ActionConfig =
-  | ToggleActionConfig
-  | ToggleMenuActionConfig
-  | CallServiceActionConfig
-  | NavigateActionConfig
-  | MoreInfoActionConfig
-  | UrlActionConfig
-  | NoActionConfig;
+export interface CustomActionConfig extends BaseActionConfig {
+  action: "fire-dom-event";
+  repeat?: number;
+  haptic?: HapticType;
+}
 
 export interface BaseActionConfig {
   confirmation?: ConfirmationRestrictionConfig;
@@ -78,6 +76,15 @@ export interface ConfirmationRestrictionConfig {
 export interface RestrictionConfig {
   user: string;
 }
+
+export type ActionConfig =
+  | ToggleActionConfig
+  | CallServiceActionConfig
+  | NavigateActionConfig
+  | UrlActionConfig
+  | MoreInfoActionConfig
+  | NoActionConfig
+  | CustomActionConfig;
 
 export interface Window {
   // Custom panel entry point url
@@ -235,4 +242,38 @@ export interface LovelaceCard extends HTMLElement {
   isPanel?: boolean;
   getCardSize(): number;
   setConfig(config: LovelaceCardConfig): void;
+}
+
+export interface LovelaceCardEditor extends HTMLElement {
+  hass?: HomeAssistant;
+  lovelace?: LovelaceConfig;
+  setConfig(config: LovelaceCardConfig): void;
+}
+
+export interface LovelaceConfig {
+  title?: string;
+  views: LovelaceViewConfig[];
+  background?: string;
+}
+
+export interface LovelaceViewConfig {
+  index?: number;
+  title?: string;
+  badges?: Array<string | LovelaceBadgeConfig>;
+  cards?: LovelaceCardConfig[];
+  path?: string;
+  icon?: string;
+  theme?: string;
+  panel?: boolean;
+  background?: string;
+  visible?: boolean | ShowViewConfig[];
+}
+
+export interface ShowViewConfig {
+  user?: string;
+}
+
+export interface LovelaceBadgeConfig {
+  type?: string;
+  [key: string]: any;
 }

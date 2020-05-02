@@ -19,6 +19,7 @@ export * from "./evaluate-filter";
 export * from "./fire-event";
 export * from "./handle-click";
 export * from "./haptic";
+export * from "./has-action";
 export * from "./has-changed";
 export * from "./has-double-click";
 export * from "./navigate";

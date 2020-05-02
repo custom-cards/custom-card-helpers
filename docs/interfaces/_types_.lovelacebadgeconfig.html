@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ConfirmationRestrictionConfig | custom-card-helpers</title>
+	<title>LovelaceBadgeConfig | custom-card-helpers</title>
 	<meta name="description" content="Documentation for custom-card-helpers">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_types_.html">&quot;types&quot;</a>
 				</li>
 				<li>
-					<a href="_types_.confirmationrestrictionconfig.html">ConfirmationRestrictionConfig</a>
+					<a href="_types_.lovelacebadgeconfig.html">LovelaceBadgeConfig</a>
 				</li>
 			</ul>
-			<h1>Interface ConfirmationRestrictionConfig</h1>
+			<h1>Interface LovelaceBadgeConfig</h1>
 		</div>
 	</div>
 </header>
@@ -73,9 +73,13 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ConfirmationRestrictionConfig</span>
+						<span class="target">LovelaceBadgeConfig</span>
 					</li>
 				</ul>
+			</section>
+			<section class="tsd-panel tsd-kind-interface tsd-parent-kind-module">
+				<h3 class="tsd-before-signature">Indexable</h3>
+				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
@@ -84,8 +88,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.confirmationrestrictionconfig.html#exemptions" class="tsd-kind-icon">exemptions</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.confirmationrestrictionconfig.html#text" class="tsd-kind-icon">text</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.lovelacebadgeconfig.html#type" class="tsd-kind-icon">type</a></li>
 							</ul>
 						</section>
 					</div>
@@ -94,22 +97,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="exemptions" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> exemptions</h3>
-					<div class="tsd-signature tsd-kind-icon">exemptions<span class="tsd-signature-symbol">:</span> <a href="_types_.restrictionconfig.html" class="tsd-signature-type">RestrictionConfig</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="type" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> type</h3>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/e233f4e/src/types.ts#L73">src/types.ts:73</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="text" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> text</h3>
-					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/e233f4e/src/types.ts#L72">src/types.ts:72</a></li>
+							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/e233f4e/src/types.ts#L277">src/types.ts:277</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -139,21 +132,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.callserviceactionconfig.html" class="tsd-kind-icon">Call<wbr>Service<wbr>Action<wbr>Config</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.confirmationrestrictionconfig.html" class="tsd-kind-icon">Confirmation<wbr>Restriction<wbr>Config</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.confirmationrestrictionconfig.html#exemptions" class="tsd-kind-icon">exemptions</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.confirmationrestrictionconfig.html#text" class="tsd-kind-icon">text</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.credential.html" class="tsd-kind-icon">Credential</a>
 					</li>
@@ -166,9 +147,18 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.homeassistant.html" class="tsd-kind-icon">Home<wbr>Assistant</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.lovelacebadgeconfig.html" class="tsd-kind-icon">Lovelace<wbr>Badge<wbr>Config</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_types_.lovelacebadgeconfig.html#type" class="tsd-kind-icon">type</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.lovelacecard.html" class="tsd-kind-icon">Lovelace<wbr>Card</a>
 					</li>
