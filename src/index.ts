@@ -17,6 +17,7 @@ export * from "./create-thing";
 export * from "./domain_icons";
 export * from "./evaluate-filter";
 export * from "./fire-event";
+export * from "./handle-action";
 export * from "./handle-click";
 export * from "./haptic";
 export * from "./has-action";

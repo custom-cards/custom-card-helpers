@@ -1,5 +1,6 @@
 import { HassEntities, HassConfig, Auth, Connection, MessageBase, HassServices } from "home-assistant-js-websocket";
 import { HapticType } from "./haptic";
+import { HASSDomEvent } from "./fire-event";
 export interface ToggleMenuActionConfig extends BaseActionConfig {
     action: "toggle-menu";
     repeat?: number;
@@ -220,3 +221,7 @@ export interface LovelaceBadgeConfig {
     type?: string;
     [key: string]: any;
 }
+export interface ActionHandlerDetail {
+    action: string;
+}
+export declare type ActionHandlerEvent = HASSDomEvent<ActionHandlerDetail>;

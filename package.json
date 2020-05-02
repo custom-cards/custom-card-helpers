@@ -1,6 +1,6 @@
 {
   "name": "custom-card-helpers",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Set of helpful functions and types for Custom Card creators",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",

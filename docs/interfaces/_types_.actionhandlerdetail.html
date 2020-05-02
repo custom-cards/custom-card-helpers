@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CurrentUser | custom-card-helpers</title>
+	<title>ActionHandlerDetail | custom-card-helpers</title>
 	<meta name="description" content="Documentation for custom-card-helpers">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_types_.html">&quot;types&quot;</a>
 				</li>
 				<li>
-					<a href="_types_.currentuser.html">CurrentUser</a>
+					<a href="_types_.actionhandlerdetail.html">ActionHandlerDetail</a>
 				</li>
 			</ul>
-			<h1>Interface CurrentUser</h1>
+			<h1>Interface ActionHandlerDetail</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">CurrentUser</span>
+						<span class="target">ActionHandlerDetail</span>
 					</li>
 				</ul>
 			</section>
@@ -84,12 +84,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.currentuser.html#credentials" class="tsd-kind-icon">credentials</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.currentuser.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.currentuser.html#is_admin" class="tsd-kind-icon">is_<wbr>admin</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.currentuser.html#is_owner" class="tsd-kind-icon">is_<wbr>owner</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.currentuser.html#mfa_modules" class="tsd-kind-icon">mfa_<wbr>modules</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.currentuser.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.actionhandlerdetail.html#action" class="tsd-kind-icon">action</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,62 +93,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="credentials" class="tsd-anchor"></a>
-					<h3>credentials</h3>
-					<div class="tsd-signature tsd-kind-icon">credentials<span class="tsd-signature-symbol">:</span> <a href="_types_.credential.html" class="tsd-signature-type">Credential</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="action" class="tsd-anchor"></a>
+					<h3>action</h3>
+					<div class="tsd-signature tsd-kind-icon">action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/b85b6e4/src/types.ts#L145">src/types.ts:145</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/b85b6e4/src/types.ts#L141">src/types.ts:141</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="is_admin" class="tsd-anchor"></a>
-					<h3>is_<wbr>admin</h3>
-					<div class="tsd-signature tsd-kind-icon">is_<wbr>admin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/b85b6e4/src/types.ts#L143">src/types.ts:143</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="is_owner" class="tsd-anchor"></a>
-					<h3>is_<wbr>owner</h3>
-					<div class="tsd-signature tsd-kind-icon">is_<wbr>owner<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/b85b6e4/src/types.ts#L142">src/types.ts:142</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="mfa_modules" class="tsd-anchor"></a>
-					<h3>mfa_<wbr>modules</h3>
-					<div class="tsd-signature tsd-kind-icon">mfa_<wbr>modules<span class="tsd-signature-symbol">:</span> <a href="_types_.mfamodule.html" class="tsd-signature-type">MFAModule</a><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/b85b6e4/src/types.ts#L146">src/types.ts:146</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/b85b6e4/src/types.ts#L144">src/types.ts:144</a></li>
+							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/b85b6e4/src/types.ts#L283">src/types.ts:283</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -177,9 +122,18 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.actionhandlerdetail.html" class="tsd-kind-icon">Action<wbr>Handler<wbr>Detail</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_types_.actionhandlerdetail.html#action" class="tsd-kind-icon">action</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.baseactionconfig.html" class="tsd-kind-icon">Base<wbr>Action<wbr>Config</a>
 					</li>
@@ -192,33 +146,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.credential.html" class="tsd-kind-icon">Credential</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.currentuser.html" class="tsd-kind-icon">Current<wbr>User</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.currentuser.html#credentials" class="tsd-kind-icon">credentials</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.currentuser.html#id" class="tsd-kind-icon">id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.currentuser.html#is_admin" class="tsd-kind-icon">is_<wbr>admin</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.currentuser.html#is_owner" class="tsd-kind-icon">is_<wbr>owner</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.currentuser.html#mfa_modules" class="tsd-kind-icon">mfa_<wbr>modules</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.currentuser.html#name" class="tsd-kind-icon">name</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_types_.customactionconfig.html" class="tsd-kind-icon">Custom<wbr>Action<wbr>Config</a>
 					</li>
