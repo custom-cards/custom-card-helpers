@@ -85,7 +85,8 @@ export type ActionConfig =
   | UrlActionConfig
   | MoreInfoActionConfig
   | NoActionConfig
-  | CustomActionConfig;
+  | CustomActionConfig
+  | ToggleMenuActionConfig;
 
 export interface Window {
   // Custom panel entry point url

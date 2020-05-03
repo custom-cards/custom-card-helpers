@@ -59,7 +59,7 @@ export interface ConfirmationRestrictionConfig {
 export interface RestrictionConfig {
     user: string;
 }
-export declare type ActionConfig = ToggleActionConfig | CallServiceActionConfig | NavigateActionConfig | UrlActionConfig | MoreInfoActionConfig | NoActionConfig | CustomActionConfig;
+export declare type ActionConfig = ToggleActionConfig | CallServiceActionConfig | NavigateActionConfig | UrlActionConfig | MoreInfoActionConfig | NoActionConfig | CustomActionConfig | ToggleMenuActionConfig;
 export interface Window {
     customPanelJS: string;
     ShadyCSS: {
