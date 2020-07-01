@@ -245,7 +245,8 @@ export interface LovelaceCardConfig {
 export interface LovelaceCard extends HTMLElement {
   hass?: HomeAssistant;
   isPanel?: boolean;
-  getCardSize(): number;
+  editMode?: boolean;
+  getCardSize(): number | Promise<number>;
   setConfig(config: LovelaceCardConfig): void;
 }
 
