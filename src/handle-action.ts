@@ -4,8 +4,7 @@ import { fireEvent } from "./fire-event";
 import { navigate } from "./navigate";
 import { toggleEntity } from "./toggle-entity";
 
-
-export const handleAction = (
+export const handleActionConfig = (
   node: HTMLElement,
   hass: HomeAssistant,
   config: {
@@ -15,18 +14,8 @@ export const handleAction = (
     tap_action?: ActionConfig;
     double_tap_action?: ActionConfig;
   },
-  action: string
+  actionConfig: ActionConfig | undefined
 ): void => {
-  let actionConfig: ActionConfig | undefined;
-
-  if (action === "double_tap" && config.double_tap_action) {
-    actionConfig = config.double_tap_action;
-  } else if (action === "hold" && config.hold_action) {
-    actionConfig = config.hold_action;
-  } else if (action === "tap" && config.tap_action) {
-    actionConfig = config.tap_action;
-  }
-
   if (!actionConfig) {
     actionConfig = {
       action: "more-info",
@@ -86,4 +75,29 @@ export const handleAction = (
       forwardHaptic("success");
     }
   }
+};
+
+export const handleAction = (
+  node: HTMLElement,
+  hass: HomeAssistant,
+  config: {
+    entity?: string;
+    camera_image?: string;
+    hold_action?: ActionConfig;
+    tap_action?: ActionConfig;
+    double_tap_action?: ActionConfig;
+  },
+  action: string
+): void => {
+  let actionConfig: ActionConfig | undefined;
+
+  if (action === "double_tap" && config.double_tap_action) {
+    actionConfig = config.double_tap_action;
+  } else if (action === "hold" && config.hold_action) {
+    actionConfig = config.hold_action;
+  } else if (action === "tap" && config.tap_action) {
+    actionConfig = config.tap_action;
+  }
+
+  handleActionConfig(node, hass, config, actionConfig);
 };
