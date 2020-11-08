@@ -233,3 +233,28 @@ export interface ActionHandlerOptions {
     hasHold?: boolean;
     hasDoubleClick?: boolean;
 }
+export interface EntitiesCardEntityConfig extends EntityConfig {
+    type?: string;
+    secondary_info?: "entity-id" | "last-changed" | "last-triggered" | "last-updated" | "position" | "tilt-position" | "brightness";
+    action_name?: string;
+    service?: string;
+    service_data?: Record<string, unknown>;
+    url?: string;
+    tap_action?: ActionConfig;
+    hold_action?: ActionConfig;
+    double_tap_action?: ActionConfig;
+    state_color?: boolean;
+    show_name?: boolean;
+    show_icon?: boolean;
+}
+export interface EntityConfig {
+    entity: string;
+    type?: string;
+    name?: string;
+    icon?: string;
+    image?: string;
+}
+export interface LovelaceElementConfigBase {
+    type: string;
+    style: Record<string, string>;
+}
