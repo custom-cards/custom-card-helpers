@@ -7,7 +7,11 @@
  * @returns Debounced Function
  */
 // eslint-disable-next-line: ban-types
-export const debounce = <T extends (...args) => unknown>(func: T, wait: number, immediate = false): T => {
+export const debounce = <T extends (...args) => unknown>(
+  func: T,
+  wait: number,
+  immediate = false
+): T => {
   let timeout;
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
