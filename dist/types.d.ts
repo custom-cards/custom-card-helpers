@@ -84,6 +84,7 @@ declare global {
             entityId: string | null;
         };
         "ll-rebuild": {};
+        "ll-custom": {};
         "location-changed": {
             replace: boolean;
         };
