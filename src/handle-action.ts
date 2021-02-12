@@ -73,6 +73,10 @@ export const handleActionConfig = (
       const [domain, service] = actionConfig.service.split(".", 2);
       hass.callService(domain, service, actionConfig.service_data);
       forwardHaptic("success");
+      break;
+    }
+    case "fire-dom-event": {
+      fireEvent(node, "ll-custom", actionConfig);
     }
   }
 };
