@@ -90,6 +90,12 @@ export const handleClick = (
       }
       hass.callService(domain, service, serviceData);
       if (actionConfig.haptic) forwardHaptic(actionConfig.haptic);
+      break;
+    }
+    case "fire-dom-event": {
+      fireEvent(node, "ll-custom", actionConfig);
+      if (actionConfig.haptic) forwardHaptic(actionConfig.haptic);
+      break;
     }
   }
 };
