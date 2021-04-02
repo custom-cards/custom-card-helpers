@@ -1,4 +1,5 @@
 import fecha from "fecha";
+import { FrontendTranslationData } from "../types";
 
 // Check for support of native locale string options
 function toLocaleTimeStringSupportsOptions() {
@@ -11,8 +12,8 @@ function toLocaleTimeStringSupportsOptions() {
 }
 
 export const formatTime = (toLocaleTimeStringSupportsOptions()
-  ? (dateObj: Date, locales: string) =>
-      dateObj.toLocaleTimeString(locales, {
+  ? (dateObj: Date, locales: FrontendTranslationData) =>
+      dateObj.toLocaleTimeString(locales.language, {
         hour: "numeric",
         minute: "2-digit",
       })
