@@ -207,7 +207,7 @@ export interface HomeAssistant {
   * @deprecated Use `locale.language` instead
   */
   language: string;
-  locale : FrontendTranslationData;
+  locale? : FrontendTranslationData;
   // local stored language, keep that name for backward compability
   selectedLanguage: string;
   resources: Resources;
