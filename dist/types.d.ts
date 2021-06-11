@@ -163,7 +163,7 @@ export interface HomeAssistant {
     * @deprecated Use `locale.language` instead
     */
     language: string;
-    locale: FrontendTranslationData;
+    locale?: FrontendTranslationData;
     selectedLanguage: string;
     resources: Resources;
     localize: LocalizeFunc;
