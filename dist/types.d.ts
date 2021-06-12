@@ -159,7 +159,11 @@ export interface HomeAssistant {
     selectedTheme?: string | null;
     panels: Panels;
     panelUrl: string;
+    /**
+    * @deprecated Use `locale.language` instead
+    */
     language: string;
+    locale?: FrontendTranslationData;
     selectedLanguage: string;
     resources: Resources;
     localize: LocalizeFunc;
@@ -225,6 +229,18 @@ export interface ShowViewConfig {
 export interface LovelaceBadgeConfig {
     type?: string;
     [key: string]: any;
+}
+export interface FrontendTranslationData {
+    language: string;
+    number_format: NumberFormat;
+}
+export declare enum NumberFormat {
+    language = "language",
+    system = "system",
+    comma_decimal = "comma_decimal",
+    decimal_comma = "decimal_comma",
+    space_comma = "space_comma",
+    none = "none"
 }
 export interface ActionHandlerDetail {
     action: string;

@@ -37,7 +37,7 @@
     "typescript": "^3.8.3"
   },
   "devDependencies": {
-    "microbundle": "^0.11.0",
+    "microbundle": "^0.13.0",
     "typedoc": "^0.17.6"
   }
 }
