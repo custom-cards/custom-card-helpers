@@ -85,13 +85,13 @@
 					<a name="computestatedisplay" class="tsd-anchor"></a>
 					<h3>compute<wbr>State<wbr>Display</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">compute<wbr>State<wbr>Display<span class="tsd-signature-symbol">(</span>localize<span class="tsd-signature-symbol">: </span><a href="_types_.html#localizefunc" class="tsd-signature-type">LocalizeFunc</a>, stateObj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HassEntity</span>, language<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">compute<wbr>State<wbr>Display<span class="tsd-signature-symbol">(</span>localize<span class="tsd-signature-symbol">: </span><a href="_types_.html#localizefunc" class="tsd-signature-type">LocalizeFunc</a>, stateObj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HassEntity</span>, locale<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_.frontendtranslationdata.html" class="tsd-signature-type">FrontendTranslationData</a>, state<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/85dc503/src/compute-state-display.ts#L8">src/compute-state-display.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/0404855/src/compute-state-display.ts#L10">src/compute-state-display.ts:10</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -103,7 +103,10 @@
 									<h5>stateObj: <span class="tsd-signature-type">HassEntity</span></h5>
 								</li>
 								<li>
-									<h5>language: <span class="tsd-signature-type">string</span></h5>
+									<h5>locale: <a href="../interfaces/_types_.frontendtranslationdata.html" class="tsd-signature-type">FrontendTranslationData</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> state: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -149,6 +152,9 @@
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
 			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
 		</div>
 	</div>
 </footer>
@@ -157,6 +163,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
