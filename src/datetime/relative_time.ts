@@ -19,6 +19,7 @@ export function relativeTime(
   const compareTime = options.compareTime || new Date();
   let delta = (compareTime.getTime() - dateObj.getTime()) / 1000;
   const tense = delta >= 0 ? "past" : "future";
+  const durationLangKey = options.includeTense === false ? 'duration' : `${tense}_duration`;
   delta = Math.abs(delta);
 
   let timeDesc;
@@ -27,7 +28,7 @@ export function relativeTime(
     if (delta < tests[i]) {
       delta = Math.floor(delta);
       timeDesc = localize(
-        `ui.components.relative_time.duration.${langKey[i]}`,
+        `ui.components.relative_time.${durationLangKey}.${langKey[i]}`,
         "count",
         delta
       );
@@ -40,13 +41,11 @@ export function relativeTime(
   if (timeDesc === undefined) {
     delta = Math.floor(delta);
     timeDesc = localize(
-      "ui.components.relative_time.duration.week",
+      `ui.components.relative_time.${durationLangKey}.week`,
       "count",
       delta
     );
   }
 
-  return options.includeTense === false
-    ? timeDesc
-    : localize(`ui.components.relative_time.${tense}`, "time", timeDesc);
+  return timeDesc;
 }
