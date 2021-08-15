@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "microbundle watch",
     "build": "microbundle",
-    "docs": "./node_modules/.bin/typedoc --out docs src --module commonjs --ignoreCompilerErrors && touch ./docs/.nojekyll"
+    "docs": "typedoc --out docs src && touch ./docs/.nojekyll"
   },
   "repository": {
     "type": "git",
