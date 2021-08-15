@@ -1,4 +1,7 @@
-/** Constants to be used in the frontend. */
+/**
+ * @module
+ * Constants to be used in the frontend.
+ */
 
 // Constants should be alphabetically sorted by name.
 // Arrays with values should be alphabetically sorted if order doesn't matter.

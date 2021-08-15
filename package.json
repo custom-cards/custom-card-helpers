@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "microbundle watch",
     "build": "microbundle",
-    "docs": "./node_modules/.bin/typedoc --out docs src --module commonjs --ignoreCompilerErrors && touch ./docs/.nojekyll"
+    "docs": "typedoc --out docs src && touch ./docs/.nojekyll"
   },
   "repository": {
     "type": "git",
@@ -28,16 +28,15 @@
   },
   "homepage": "https://github.com/custom-cards/custom-card-helpers#readme",
   "dependencies": {
-    "fecha": "^4.2.0",
-    "home-assistant-js-websocket": "^5.1.0",
-    "intl-messageformat": "^8.3.9",
-    "lit-element": "^2.3.1",
-    "rollup": "^2.7.6",
-    "superstruct": "^0.8.3",
-    "typescript": "^3.8.3"
+    "fecha": "^4.2.1",
+    "home-assistant-js-websocket": "^5.11.1",
+    "intl-messageformat": "^9.9.0",
+    "lit-element": "^2.5.1",
+    "rollup": "^2.56.2",
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
-    "microbundle": "^0.11.0",
-    "typedoc": "^0.17.6"
+    "microbundle": "^0.13.3",
+    "typedoc": "^0.21.5"
   }
 }
