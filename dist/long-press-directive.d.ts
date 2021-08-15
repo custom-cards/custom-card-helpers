@@ -1,4 +1,4 @@
-import { PropertyPart } from "lit-html";
+import { PropertyPart } from "lit";
 interface LongPressElement extends Element {
     longPress?: boolean;
     repeat?: number | undefined;

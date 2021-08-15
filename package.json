@@ -31,7 +31,7 @@
     "fecha": "^4.2.0",
     "home-assistant-js-websocket": "^5.1.0",
     "intl-messageformat": "^8.3.9",
-    "lit-element": "^2.3.1",
+    "lit": "^2.0.0-rc.2",
     "rollup": "^2.7.6",
     "superstruct": "^0.8.3",
     "typescript": "^3.8.3"
