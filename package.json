@@ -1,6 +1,6 @@
 {
   "name": "custom-card-helpers",
-  "version": "1.7.0",
+  "version": "1.7.2",
   "description": "Set of helpful functions and types for Custom Card creators",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
@@ -37,7 +37,7 @@
     "typescript": "^3.8.3"
   },
   "devDependencies": {
-    "microbundle": "^0.11.0",
+    "microbundle": "^0.13.0",
     "typedoc": "^0.17.6"
   }
 }

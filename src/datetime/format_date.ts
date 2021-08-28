@@ -1,4 +1,5 @@
 import fecha from "fecha";
+import { FrontendTranslationData } from "../types";
 
 // Check for support of native locale string options
 function toLocaleDateStringSupportsOptions() {
@@ -11,8 +12,8 @@ function toLocaleDateStringSupportsOptions() {
 }
 
 export const formatDate = (toLocaleDateStringSupportsOptions()
-  ? (dateObj: Date, locales: string) =>
-      dateObj.toLocaleDateString(locales, {
+  ? (dateObj: Date, locales: FrontendTranslationData) =>
+      dateObj.toLocaleDateString(locales.language, {
         year: "numeric",
         month: "long",
         day: "numeric",

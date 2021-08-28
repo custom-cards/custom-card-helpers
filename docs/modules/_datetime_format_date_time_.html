@@ -90,10 +90,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="formatdatetime" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> format<wbr>Date<wbr>Time</h3>
-					<div class="tsd-signature tsd-kind-icon">format<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> = (toLocaleStringSupportsOptions()? (dateObj: Date, locales: string) &#x3D;&gt;dateObj.toLocaleString(locales, {year: &quot;numeric&quot;,month: &quot;long&quot;,day: &quot;numeric&quot;,hour: &quot;numeric&quot;,minute: &quot;2-digit&quot;,}): (dateObj: Date) &#x3D;&gt; fecha.format(dateObj, &quot;haDateTime&quot;))</span></div>
+					<div class="tsd-signature tsd-kind-icon">format<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> = (toLocaleStringSupportsOptions()? (dateObj: Date, locales: FrontendTranslationData) &#x3D;&gt;dateObj.toLocaleString(locales.language, {year: &quot;numeric&quot;,month: &quot;long&quot;,day: &quot;numeric&quot;,hour: &quot;numeric&quot;,minute: &quot;2-digit&quot;,}): (dateObj: Date) &#x3D;&gt; fecha.format(dateObj, &quot;haDateTime&quot;))</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/85dc503/src/datetime/format_date_time.ts#L13">src/datetime/format_date_time.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/2dece72/src/datetime/format_date_time.ts#L14">src/datetime/format_date_time.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -110,7 +110,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/85dc503/src/datetime/format_date_time.ts#L4">src/datetime/format_date_time.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/2dece72/src/datetime/format_date_time.ts#L5">src/datetime/format_date_time.ts:5</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -159,6 +159,9 @@
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
 			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
 		</div>
 	</div>
 </footer>
@@ -167,6 +170,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

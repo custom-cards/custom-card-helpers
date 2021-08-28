@@ -1,74 +1,63 @@
-import {FrontendLocaleData, NumberFormat} from './types';
-
-export const numberFormatToLocale = (
-  localeOptions: FrontendLocaleData
-): string | string[] | undefined => {
-  switch (localeOptions.number_format) {
-    case NumberFormat.comma_decimal:
-      return ["en-US", "en"]; // Use United States with fallback to English formatting 1,234,567.89
-    case NumberFormat.decimal_comma:
-      return ["de", "es", "it"]; // Use German with fallback to Spanish then Italian formatting 1.234.567,89
-    case NumberFormat.space_comma:
-      return ["fr", "sv", "cs"]; // Use French with fallback to Swedish and Czech formatting 1 234 567,89
-    case NumberFormat.system:
-      return undefined;
-    default:
-      return localeOptions.language;
-  }
-};
-
+import { FrontendTranslationData, NumberFormat } from "./types";
 
 /**
  * Formats a number based on the specified language with thousands separator(s) and decimal character for better legibility.
  * @param num The number to format
- * @param language The language to use when formatting the number
+ * @param locale The user-selected language and number format, from `hass.locale`
+ * @param options Intl.NumberFormatOptions to use
  */
 export const formatNumber = (
   num: string | number,
-  localeOptions: FrontendLocaleData,
+  locale?: FrontendTranslationData,
   options?: Intl.NumberFormatOptions
 ): string => {
 
-  const locale = localeOptions
-  ? numberFormatToLocale(localeOptions)
-  : undefined;
+  let format: string | string[] | undefined;
 
+  switch (locale?.number_format) {
+    case NumberFormat.comma_decimal:
+      format = ["en-US", "en"]; // Use United States with fallback to English formatting 1,234,567.89
+      break;
+    case NumberFormat.decimal_comma:
+      format = ["de", "es", "it"]; // Use German with fallback to Spanish then Italian formatting 1.234.567,89
+      break;
+    case NumberFormat.space_comma:
+      format = ["fr", "sv", "cs"]; // Use French with fallback to Swedish and Czech formatting 1 234 567,89
+      break;
+    case NumberFormat.system:
+      format = undefined;
+      break;
+    default:
+      format = locale?.language;
+  }
   // Polyfill for Number.isNaN, which is more reliable than the global isNaN()
   Number.isNaN =
     Number.isNaN ||
     function isNaN(input) {
       return typeof input === "number" && isNaN(input);
     };
-  
-  if (
-    localeOptions?.number_format !== NumberFormat.none &&
-    !Number.isNaN(Number(num)) &&
-    Intl
-  ) {
-    try {
-      return new Intl.NumberFormat(
-        locale,
-        getDefaultFormatOptions(num, options)
-      ).format(Number(num));
-    } catch (error) {
-      // Don't fail when using "TEST" language
-      // eslint-disable-next-line no-console
-      console.error(error);
-      return new Intl.NumberFormat(
-        undefined,
-        getDefaultFormatOptions(num, options)
-      ).format(Number(num));
+
+    if (
+      !Number.isNaN(Number(num)) &&
+      Intl &&
+      locale?.number_format !== NumberFormat.none
+    ) {
+      try {
+        return new Intl.NumberFormat(
+          format,
+          getDefaultFormatOptions(num, options)
+        ).format(Number(num));
+      } catch (error) {
+        // Don't fail when using "TEST" language
+        // eslint-disable-next-line no-console
+        console.error(error);
+        return new Intl.NumberFormat(
+          undefined,
+          getDefaultFormatOptions(num, options)
+        ).format(Number(num));
+      }
     }
-  }
-
-  if (typeof num === "string") {
-    return num;
-  }
-  //Rounding Number
-  const maximumFractionDigits = options?.maximumFractionDigits || 2;
-  const roundedNum = Math.round(num * 10 ** maximumFractionDigits) / 10 ** maximumFractionDigits;
-
-  return `${roundedNum.toString()}${options?.style === "currency" ? ` ${options.currency}` : ""}`;
+    return num ? num.toString() : "";
 };
 
 /**
@@ -80,7 +69,7 @@ const getDefaultFormatOptions = (
   num: string | number,
   options?: Intl.NumberFormatOptions
 ): Intl.NumberFormatOptions => {
-  const defaultOptions: Intl.NumberFormatOptions = {maximumFractionDigits: 2, ...options};
+  const defaultOptions: Intl.NumberFormatOptions = options || {};
 
   if (typeof num !== "string") {
     return defaultOptions;
