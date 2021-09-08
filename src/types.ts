@@ -4,7 +4,7 @@ import {
   Auth,
   Connection,
   MessageBase,
-  HassServices
+  HassServices,
 } from "home-assistant-js-websocket";
 import { HapticType } from "./haptic";
 import { HASSDomEvent } from "./fire-event";
@@ -121,9 +121,9 @@ declare global {
     };
     "show-dialog": {};
     undefined;
-    "action": {
+    action: {
       action: string;
-    }
+    };
   }
 }
 
@@ -204,10 +204,10 @@ export interface HomeAssistant {
   //   - browser language
   //   - english (en)
   /**
-  * @deprecated Use `locale.language` instead
-  */
+   * @deprecated Use `locale.language` instead
+   */
   language: string;
-  locale? : FrontendTranslationData;
+  locale?: FrontendTranslationData;
   // local stored language, keep that name for backward compability
   selectedLanguage: string;
   resources: Resources;
@@ -314,15 +314,6 @@ export interface LovelaceBadgeConfig {
 export interface FrontendTranslationData {
   language: string;
   number_format: NumberFormat;
-}
-
-export enum NumberFormat {
-  language = "language",
-  system = "system",
-  comma_decimal = "comma_decimal",
-  decimal_comma = "decimal_comma",
-  space_comma = "space_comma",
-  none = "none",
 }
 
 export interface ActionHandlerDetail {

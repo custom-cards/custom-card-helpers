@@ -90,7 +90,7 @@ declare global {
         };
         "show-dialog": {};
         undefined: any;
-        "action": {
+        action: {
             action: string;
         };
     }
@@ -160,8 +160,8 @@ export interface HomeAssistant {
     panels: Panels;
     panelUrl: string;
     /**
-    * @deprecated Use `locale.language` instead
-    */
+     * @deprecated Use `locale.language` instead
+     */
     language: string;
     locale?: FrontendTranslationData;
     selectedLanguage: string;
@@ -187,6 +187,25 @@ export interface HomeAssistant {
     }) => Promise<Response>;
     sendWS: (msg: MessageBase) => Promise<void>;
     callWS: <T>(msg: MessageBase) => Promise<T>;
+}
+export declare enum NumberFormat {
+    language = "language",
+    system = "system",
+    comma_decimal = "comma_decimal",
+    decimal_comma = "decimal_comma",
+    space_comma = "space_comma",
+    none = "none"
+}
+export declare enum TimeFormat {
+    language = "language",
+    system = "system",
+    am_pm = "12",
+    twenty_four = "24"
+}
+export interface FrontendLocaleData {
+    language: string;
+    number_format: NumberFormat;
+    time_format: TimeFormat;
 }
 export interface LovelaceCardConfig {
     index?: number;
@@ -233,14 +252,6 @@ export interface LovelaceBadgeConfig {
 export interface FrontendTranslationData {
     language: string;
     number_format: NumberFormat;
-}
-export declare enum NumberFormat {
-    language = "language",
-    system = "system",
-    comma_decimal = "comma_decimal",
-    decimal_comma = "decimal_comma",
-    space_comma = "space_comma",
-    none = "none"
 }
 export interface ActionHandlerDetail {
     action: string;
