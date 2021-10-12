@@ -1,0 +1,30 @@
+name: docs
+on:
+  release:
+    types: [published, deleted]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+
+      - name: Install dependencies 
+        run: npm install typedoc
+
+      - name: Create the docs directory locally in CI
+        run: npm run docs
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+        # The Branch here is a reserved branch for github
+          branch: gh-pages
+          folder: docs
