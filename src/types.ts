@@ -112,7 +112,7 @@ declare global {
       config: any;
     };
     "hass-more-info": {
-      entityId: string | null;
+      entityId: string | undefined;
     };
     "ll-rebuild": {};
     "ll-custom": {};
