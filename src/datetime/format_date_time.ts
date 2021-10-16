@@ -1,6 +1,5 @@
 import { FrontendLocaleData } from "../types";
 import { useAmPm } from "./use_am_pm";
-import { polyfillsLoaded } from "../translations/localize";
 
 // Check for support of native locale string options
 function toLocaleStringSupportsOptions() {

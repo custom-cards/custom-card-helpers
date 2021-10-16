@@ -1,6 +1,5 @@
 import { FrontendLocaleData } from "../types";
 import { useAmPm } from "./use_am_pm";
-import { polyfillsLoaded } from "../translations/localize";
 
 /**
  * 9:15 PM or 21:15

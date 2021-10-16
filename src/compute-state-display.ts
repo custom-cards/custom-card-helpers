@@ -4,13 +4,13 @@ import { formatDate } from "./datetime/format_date";
 import { formatTime } from "./datetime/format_time";
 import { LocalizeFunc } from "./translations/localize";
 import { computeStateDomain } from "./compute-state-domain";
-import { FrontendTranslationData } from "./types";
+import { FrontendLocaleData } from "./types";
 import { formatNumber } from "./format-number";
 
 export function computeStateDisplay(
   localize: LocalizeFunc,
   stateObj: HassEntity,
-  locale: FrontendTranslationData,
+  locale: FrontendLocaleData,
   state?: string
 ): string {
   const compareState = state !== undefined ? state : stateObj.state;

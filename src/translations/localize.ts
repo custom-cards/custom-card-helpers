@@ -1,8 +1,3 @@
-import { shouldPolyfill as shouldPolyfillLocale } from "@formatjs/intl-locale/lib/should-polyfill";
-import { shouldPolyfill as shouldPolyfillPluralRules } from "@formatjs/intl-pluralrules/lib/should-polyfill";
-import { shouldPolyfill as shouldPolyfillRelativeTime } from "@formatjs/intl-relativetimeformat/lib/should-polyfill";
-import { shouldPolyfill as shouldPolyfillDateTime } from "@formatjs/intl-datetimeformat/lib/should-polyfill";
-
 import IntlMessageFormat from "intl-messageformat";
 import { Resources } from "../types";
 
@@ -17,32 +12,8 @@ export interface FormatsType {
   time: FormatType;
 }
 
-const loadedPolyfillLocale = new Set();
-
-const polyfills: Promise<any>[] = [];
-if (__BUILD__ === "latest") {
-  if (shouldPolyfillLocale()) {
-    polyfills.push(import("@formatjs/intl-locale/polyfill"));
-  }
-  if (shouldPolyfillPluralRules()) {
-    polyfills.push(import("@formatjs/intl-pluralrules/polyfill"));
-    polyfills.push(import("@formatjs/intl-pluralrules/locale-data/en"));
-  }
-  if (shouldPolyfillRelativeTime()) {
-    polyfills.push(import("@formatjs/intl-relativetimeformat/polyfill"));
-  }
-  if (shouldPolyfillDateTime()) {
-    polyfills.push(import("@formatjs/intl-datetimeformat/polyfill"));
-  }
-}
-
-export const polyfillsLoaded =
-  polyfills.length === 0
-    ? undefined
-    : Promise.all(polyfills).then(() =>
-        // Load the default language
-        loadPolyfillLocales(getLocalLanguage())
-      );
+// !!! Polyfills do not have to be handles since they get handled by the homeassistant frontend already !!!
+// Ref -> https://discord.com/channels/330944238910963714/351047592588869643/898945966953078804
 
 /**
  * Adapted from Polymer app-localize-behavior.
@@ -55,37 +26,12 @@ export const polyfillsLoaded =
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
-/**
- * Optional dictionary of user defined formats, as explained here:
- * http://formatjs.io/guides/message-syntax/#custom-formats
- *
- * For example, a valid dictionary of formats would be:
- * this.formats = {
- *    number: { USD: { style: 'currency', currency: 'USD' } }
- * }
- */
-
-/**
- * Optional dictionary of user defined formats, as explained here:
- * http://formatjs.io/guides/message-syntax/#custom-formats
- *
- * For example, a valid dictionary of formats would be:
- * this.formats = {
- *    number: { USD: { style: 'currency', currency: 'USD' } }
- * }
- */
-
  export const computeLocalize = async (
   cache: any,
   language: string,
   resources: Resources,
   formats?: FormatsType
 ): Promise<LocalizeFunc> => {
-  if (polyfillsLoaded) {
-    await polyfillsLoaded;
-  }
-
-  await loadPolyfillLocales(language);
 
   // Everytime any of the parameters change, invalidate the strings cache.
   cache._localizationCache = {};
@@ -136,48 +82,4 @@ export const polyfillsLoaded =
       return "Translation " + err;
     }
   };
-};
-
-export const loadPolyfillLocales = async (language: string) => {
-  if (loadedPolyfillLocale.has(language)) {
-    return;
-  }
-  loadedPolyfillLocale.add(language);
-  try {
-    if (
-      Intl.NumberFormat &&
-      // @ts-ignore
-      typeof Intl.NumberFormat.__addLocaleData === "function"
-    ) {
-      const result = await fetch(
-        `/static/locale-data/intl-numberformat/${language}.json`
-      );
-      // @ts-ignore
-      Intl.NumberFormat.__addLocaleData(await result.json());
-    }
-    if (
-      Intl.RelativeTimeFormat &&
-      // @ts-ignore
-      typeof Intl.RelativeTimeFormat.__addLocaleData === "function"
-    ) {
-      const result = await fetch(
-        `/static/locale-data/intl-relativetimeformat/${language}.json`
-      );
-      // @ts-ignore
-      Intl.RelativeTimeFormat.__addLocaleData(await result.json());
-    }
-    if (
-      Intl.DateTimeFormat &&
-      // @ts-ignore
-      typeof Intl.DateTimeFormat.__addLocaleData === "function"
-    ) {
-      const result = await fetch(
-        `/static/locale-data/intl-datetimeformat/${language}.json`
-      );
-      // @ts-ignore
-      Intl.DateTimeFormat.__addLocaleData(await result.json());
-    }
-  } catch (_e) {
-    // Ignore
-  }
 };

@@ -1,6 +1,5 @@
 import { selectUnit } from "@formatjs/intl-utils";
 import { FrontendLocaleData } from "../types";
-import { polyfillsLoaded } from "../translations/localize";
 
  const formatRelTimeMem =
   (locale: FrontendLocaleData) =>
