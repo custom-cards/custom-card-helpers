@@ -28,7 +28,11 @@
   },
   "homepage": "https://github.com/custom-cards/custom-card-helpers#readme",
   "dependencies": {
-    "fecha": "^4.2.0",
+    "@formatjs/intl-datetimeformat": "^4.2.4",
+    "@formatjs/intl-locale": "^2.4.38",
+    "@formatjs/intl-pluralrules": "^4.1.4",
+    "@formatjs/intl-relativetimeformat": "^9.3.1",
+    "@formatjs/intl-utils": "^3.8.4",
     "home-assistant-js-websocket": "^5.1.0",
     "intl-messageformat": "^8.3.9",
     "lit": "^2.0.0-rc.3",

@@ -311,11 +311,6 @@ export interface LovelaceBadgeConfig {
   [key: string]: any;
 }
 
-export interface FrontendTranslationData {
-  language: string;
-  number_format: NumberFormat;
-}
-
 export interface ActionHandlerDetail {
   action: string;
 }
