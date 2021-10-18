@@ -28,6 +28,12 @@ export interface CallServiceActionConfig extends BaseActionConfig {
     entity_id?: string | [string];
     [key: string]: any;
   };
+  target?: {
+    entity_id?: string | [string];
+    device_id?: string | [string];
+    area_id?: string | [string];
+    [key: string]: any;
+  };
   repeat?: number;
   haptic?: HapticType;
 }
@@ -225,7 +231,8 @@ export interface HomeAssistant {
   callService: (
     domain: string,
     service: string,
-    serviceData?: { [key: string]: any }
+    serviceData?: { [key: string]: any },
+    target?: { [key: string]: any }
   ) => Promise<void>;
   callApi: <T>(
     method: "GET" | "POST" | "PUT" | "DELETE",
