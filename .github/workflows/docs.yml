@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-node@v2
 
       - name: Install dependencies 
-        run: npm install typescript@4.4.4 && npm install typedoc@0.22.6
+        run: npm install
 
       - name: Create the docs directory locally in CI
         run: npm run docs
