@@ -53,7 +53,7 @@ export const createThing = (cardConfig, isRow = false) => {
       element.setConfig(config);
     } catch (err) {
       console.error(tag, err);
-      return _createError(err.message, config);
+      return _createError((err as Error).message, config);
     }
     return element;
   };

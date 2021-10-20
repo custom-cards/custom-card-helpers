@@ -5,8 +5,8 @@ import { FrontendTranslationData } from "../types";
 function toLocaleDateStringSupportsOptions() {
   try {
     new Date().toLocaleDateString("i");
-  } catch (e) {
-    return e.name === "RangeError";
+  } catch (err) {
+    return (err as Error).name === "RangeError";
   }
   return false;
 }
