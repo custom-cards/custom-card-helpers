@@ -11,14 +11,10 @@ import { HASSDomEvent } from "./fire-event";
 
 export interface ToggleMenuActionConfig extends BaseActionConfig {
   action: "toggle-menu";
-  repeat?: number;
-  haptic?: HapticType;
 }
 
 export interface ToggleActionConfig extends BaseActionConfig {
   action: "toggle";
-  repeat?: number;
-  haptic?: HapticType;
 }
 
 export interface CallServiceActionConfig extends BaseActionConfig {
@@ -28,45 +24,38 @@ export interface CallServiceActionConfig extends BaseActionConfig {
     entity_id?: string | [string];
     [key: string]: any;
   };
-  repeat?: number;
-  haptic?: HapticType;
 }
 
 export interface NavigateActionConfig extends BaseActionConfig {
   action: "navigate";
   navigation_path: string;
-  repeat?: number;
-  haptic?: HapticType;
 }
 
 export interface UrlActionConfig extends BaseActionConfig {
   action: "url";
   url_path: string;
-  repeat?: number;
-  haptic?: HapticType;
 }
 
 export interface MoreInfoActionConfig extends BaseActionConfig {
   action: "more-info";
   entity?: string;
-  repeat?: number;
-  haptic?: HapticType;
 }
 
 export interface NoActionConfig extends BaseActionConfig {
   action: "none";
-  repeat?: number;
-  haptic?: HapticType;
 }
 
 export interface CustomActionConfig extends BaseActionConfig {
   action: "fire-dom-event";
-  repeat?: number;
-  haptic?: HapticType;
 }
 
+/**
+ * `repeat` and `haptic` are specifically for use in custom cards like the Button-Card
+ */
 export interface BaseActionConfig {
   confirmation?: ConfirmationRestrictionConfig;
+  repeat?: number;
+  haptic?: HapticType;
 }
 
 export interface ConfirmationRestrictionConfig {
