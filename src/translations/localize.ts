@@ -1,3 +1,5 @@
+//REF: https://github.com/home-assistant/frontend/blob/dev/src/common/translations/localize.ts
+
 import IntlMessageFormat from "intl-messageformat";
 import { Resources } from "../types";
 
@@ -12,6 +14,9 @@ export interface FormatsType {
   time: FormatType;
 }
 
+// !!! Polyfills do not have to be handles since they get handled by the homeassistant frontend already !!!
+// Ref -> https://discord.com/channels/330944238910963714/351047592588869643/898945966953078804
+
 /**
  * Adapted from Polymer app-localize-behavior.
  *
@@ -23,22 +28,12 @@ export interface FormatsType {
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
-/**
- * Optional dictionary of user defined formats, as explained here:
- * http://formatjs.io/guides/message-syntax/#custom-formats
- *
- * For example, a valid dictionary of formats would be:
- * this.formats = {
- *    number: { USD: { style: 'currency', currency: 'USD' } }
- * }
- */
-
-export const computeLocalize = (
+export const computeLocalize = async (
   cache: any,
   language: string,
   resources: Resources,
   formats?: FormatsType
-): LocalizeFunc => {
+): Promise<LocalizeFunc> => {
   // Everytime any of the parameters change, invalidate the strings cache.
   cache._localizationCache = {};
 
@@ -56,48 +51,36 @@ export const computeLocalize = (
     }
 
     const messageKey = key + translatedValue;
-    let translatedMessage = cache._localizationCache[messageKey];
+    let translatedMessage = cache._localizationCache[messageKey] as
+      | IntlMessageFormat
+      | undefined;
 
     if (!translatedMessage) {
-      translatedMessage = new (IntlMessageFormat as any)(
-        translatedValue,
-        language,
-        formats
-      );
+      try {
+        translatedMessage = new IntlMessageFormat(
+          translatedValue,
+          language,
+          formats
+        );
+      } catch (err: any) {
+        return "Translation error: " + err.message;
+      }
       cache._localizationCache[messageKey] = translatedMessage;
     }
 
-    const argObject = {};
-    for (let i = 0; i < args.length; i += 2) {
-      argObject[args[i]] = args[i + 1];
+    let argObject = {};
+    if (args.length === 1 && typeof args[0] === "object") {
+      argObject = args[0];
+    } else {
+      for (let i = 0; i < args.length; i += 2) {
+        argObject[args[i]] = args[i + 1];
+      }
     }
 
     try {
-      return translatedMessage.format(argObject);
-    } catch (err) {
+      return translatedMessage.format<string>(argObject) as string;
+    } catch (err: any) {
       return "Translation " + err;
     }
   };
-};
-
-/**
- * Silly helper function that converts an object of placeholders to array so we
- * can convert it back to an object again inside the localize func.
- * @param localize
- * @param key
- * @param placeholders
- */
-export const localizeKey = (
-  localize: LocalizeFunc,
-  key: string,
-  placeholders?: { [key: string]: string }
-) => {
-  const args: [string, ...string[]] = [key];
-  if (placeholders) {
-    Object.keys(placeholders).forEach((placeholderKey) => {
-      args.push(placeholderKey);
-      args.push(placeholders[placeholderKey]);
-    });
-  }
-  return localize(...args);
 };

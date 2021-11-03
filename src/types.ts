@@ -203,13 +203,10 @@ export interface HomeAssistant {
   //   - language in local appstorage
   //   - browser language
   //   - english (en)
-  /**
-   * @deprecated Use `locale.language` instead
-   */
   language: string;
-  locale?: FrontendTranslationData;
+  locale: FrontendLocaleData;
   // local stored language, keep that name for backward compability
-  selectedLanguage: string;
+  selectedLanguage: string | null;
   resources: Resources;
   localize: LocalizeFunc;
   translationMetadata: {
@@ -309,11 +306,6 @@ export interface ShowViewConfig {
 export interface LovelaceBadgeConfig {
   type?: string;
   [key: string]: any;
-}
-
-export interface FrontendTranslationData {
-  language: string;
-  number_format: NumberFormat;
 }
 
 export interface ActionHandlerDetail {
