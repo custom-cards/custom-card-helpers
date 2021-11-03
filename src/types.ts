@@ -5,6 +5,7 @@ import {
   Connection,
   MessageBase,
   HassServices,
+  HassServiceTarget,
 } from "home-assistant-js-websocket";
 import { HapticType } from "./haptic";
 import { HASSDomEvent } from "./fire-event";
@@ -24,6 +25,10 @@ export interface CallServiceActionConfig extends BaseActionConfig {
     entity_id?: string | [string];
     [key: string]: any;
   };
+
+  target?: HassServiceTarget;
+  repeat?: number;
+  haptic?: HapticType;
 }
 
 export interface NavigateActionConfig extends BaseActionConfig {
@@ -174,6 +179,13 @@ export interface Translation {
   fingerprints: { [fragment: string]: string };
 }
 
+export interface ServiceCallRequest {
+  domain: string;
+  service: string;
+  serviceData?: Record<string, any>;
+  target?: HassServiceTarget;
+}
+
 export interface HomeAssistant {
   auth: Auth;
   connection: Connection;
@@ -209,9 +221,10 @@ export interface HomeAssistant {
   moreInfoEntityId: string;
   user: CurrentUser;
   callService: (
-    domain: string,
-    service: string,
-    serviceData?: { [key: string]: any }
+    domain: ServiceCallRequest["domain"],
+    service: ServiceCallRequest["service"],
+    serviceData?: ServiceCallRequest["serviceData"],
+    target?: ServiceCallRequest["target"]
   ) => Promise<void>;
   callApi: <T>(
     method: "GET" | "POST" | "PUT" | "DELETE",
