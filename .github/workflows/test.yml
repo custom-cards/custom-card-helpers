@@ -28,11 +28,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-          cache: 'yarn'
 
       - name: Install dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install
 
+      # Using TSC instead of microbundle because it detects the same errors and is alot quicker
       - name: Build
-        run: yarn build
+        run: tsc
