@@ -6,55 +6,55 @@ export const binarySensorIcon = (state?: string, stateObj?: HassEntity) => {
   const is_off = state === "off";
   switch (stateObj?.attributes.device_class) {
     case "battery":
-      return is_off ? "hass:battery" : "hass:battery-outline";
+      return is_off ? "mdi:battery" : "mdi:battery-outline";
     case "battery_charging":
-      return is_off ? "hass:battery" : "hass:battery-charging";
+      return is_off ? "mdi:battery" : "mdi:battery-charging";
     case "cold":
-      return is_off ? "hass:thermometer" : "hass:snowflake";
+      return is_off ? "mdi:thermometer" : "mdi:snowflake";
     case "connectivity":
-      return is_off ? "hass:server-network-off" : "hass:server-network";
+      return is_off ? "mdi:server-network-off" : "mdi:server-network";
     case "door":
-      return is_off ? "hass:door-closed" : "hass:door-open";
+      return is_off ? "mdi:door-closed" : "mdi:door-open";
     case "garage_door":
-      return is_off ? "hass:garage" : "hass:garage-open";
+      return is_off ? "mdi:garage" : "mdi:garage-open";
     case "power":
-      return is_off ? "hass:power-plug-off" : "hass:power-plug";
+      return is_off ? "mdi:power-plug-off" : "mdi:power-plug";
     case "gas":
     case "problem":
     case "safety":
     case "tamper":
-      return is_off ? "hass:check-circle" : "hass:alert-circle";
+      return is_off ? "mdi:check-circle" : "mdi:alert-circle";
     case "smoke":
-      return is_off ? "hass:check-circle" : "hass:smoke";
+      return is_off ? "mdi:check-circle" : "mdi:smoke";
     case "heat":
-      return is_off ? "hass:thermometer" : "hass:fire";
+      return is_off ? "mdi:thermometer" : "mdi:fire";
     case "light":
-      return is_off ? "hass:brightness-5" : "hass:brightness-7";
+      return is_off ? "mdi:brightness-5" : "mdi:brightness-7";
     case "lock":
-      return is_off ? "hass:lock" : "hass:lock-open";
+      return is_off ? "mdi:lock" : "mdi:lock-open";
     case "moisture":
-      return is_off ? "hass:water-off" : "hass:water";
+      return is_off ? "mdi:water-off" : "mdi:water";
     case "motion":
-      return is_off ? "hass:walk" : "hass:run";
+      return is_off ? "mdi:walk" : "mdi:run";
     case "occupancy":
-      return is_off ? "hass:home-outline" : "hass:home";
+      return is_off ? "mdi:home-outline" : "mdi:home";
     case "opening":
-      return is_off ? "hass:square" : "hass:square-outline";
+      return is_off ? "mdi:square" : "mdi:square-outline";
     case "plug":
-      return is_off ? "hass:power-plug-off" : "hass:power-plug";
+      return is_off ? "mdi:power-plug-off" : "mdi:power-plug";
     case "presence":
-      return is_off ? "hass:home-outline" : "hass:home";
+      return is_off ? "mdi:home-outline" : "mdi:home";
     case "running":
-      return is_off ? "hass:stop" : "hass:play";
+      return is_off ? "mdi:stop" : "mdi:play";
     case "sound":
-      return is_off ? "hass:music-note-off" : "hass:music-note";
+      return is_off ? "mdi:music-note-off" : "mdi:music-note";
     case "update":
-      return is_off ? "hass:package" : "hass:package-up";
+      return is_off ? "mdi:package" : "mdi:package-up";
     case "vibration":
-      return is_off ? "hass:crop-portrait" : "hass:vibrate";
+      return is_off ? "mdi:crop-portrait" : "mdi:vibrate";
     case "window":
-      return is_off ? "hass:window-closed" : "hass:window-open";
+      return is_off ? "mdi:window-closed" : "mdi:window-open";
     default:
-      return is_off ? "hass:radiobox-blank" : "hass:checkbox-marked-circle";
+      return is_off ? "mdi:radiobox-blank" : "mdi:checkbox-marked-circle";
   }
 };

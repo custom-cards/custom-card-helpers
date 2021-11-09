@@ -6,43 +6,43 @@
 import { DEFAULT_DOMAIN_ICON } from "./const";
 
 export const fixedIcons = {
-  alert: "hass:alert",
-  automation: "hass:playlist-play",
-  calendar: "hass:calendar",
-  camera: "hass:video",
-  climate: "hass:thermostat",
-  configurator: "hass:settings",
-  conversation: "hass:text-to-speech",
-  device_tracker: "hass:account",
-  fan: "hass:fan",
-  group: "hass:google-circles-communities",
-  history_graph: "hass:chart-line",
-  homeassistant: "hass:home-assistant",
-  homekit: "hass:home-automation",
-  image_processing: "hass:image-filter-frames",
-  input_boolean: "hass:drawing",
-  input_datetime: "hass:calendar-clock",
-  input_number: "hass:ray-vertex",
-  input_select: "hass:format-list-bulleted",
-  input_text: "hass:textbox",
-  light: "hass:lightbulb",
-  mailbox: "hass:mailbox",
-  notify: "hass:comment-alert",
-  person: "hass:account",
-  plant: "hass:flower",
-  proximity: "hass:apple-safari",
-  remote: "hass:remote",
-  scene: "hass:google-pages",
-  script: "hass:file-document",
-  sensor: "hass:eye",
-  simple_alarm: "hass:bell",
-  sun: "hass:white-balance-sunny",
-  switch: "hass:flash",
-  timer: "hass:timer",
-  updater: "hass:cloud-upload",
-  vacuum: "hass:robot-vacuum",
-  water_heater: "hass:thermometer",
-  weblink: "hass:open-in-new"
+  alert: "mdi:alert",
+  automation: "mdi:playlist-play",
+  calendar: "mdi:calendar",
+  camera: "mdi:video",
+  climate: "mdi:thermostat",
+  configurator: "mdi:settings",
+  conversation: "mdi:text-to-speech",
+  device_tracker: "mdi:account",
+  fan: "mdi:fan",
+  group: "mdi:google-circles-communities",
+  history_graph: "mdi:chart-line",
+  homeassistant: "mdi:home-assistant",
+  homekit: "mdi:home-automation",
+  image_processing: "mdi:image-filter-frames",
+  input_boolean: "mdi:drawing",
+  input_datetime: "mdi:calendar-clock",
+  input_number: "mdi:ray-vertex",
+  input_select: "mdi:format-list-bulleted",
+  input_text: "mdi:textbox",
+  light: "mdi:lightbulb",
+  mailbox: "mdi:mailbox",
+  notify: "mdi:comment-alert",
+  person: "mdi:account",
+  plant: "mdi:flower",
+  proximity: "mdi:apple-safari",
+  remote: "mdi:remote",
+  scene: "mdi:google-pages",
+  script: "mdi:file-document",
+  sensor: "mdi:eye",
+  simple_alarm: "mdi:bell",
+  sun: "mdi:white-balance-sunny",
+  switch: "mdi:flash",
+  timer: "mdi:timer",
+  updater: "mdi:cloud-upload",
+  vacuum: "mdi:robot-vacuum",
+  water_heater: "mdi:thermometer",
+  weblink: "mdi:open-in-new"
 };
 
 export function domainIcon(domain: string, state?: string): string {
@@ -54,43 +54,43 @@ export function domainIcon(domain: string, state?: string): string {
     case "alarm_control_panel":
       switch (state) {
         case "armed_home":
-          return "hass:bell-plus";
+          return "mdi:bell-plus";
         case "armed_night":
-          return "hass:bell-sleep";
+          return "mdi:bell-sleep";
         case "disarmed":
-          return "hass:bell-outline";
+          return "mdi:bell-outline";
         case "triggered":
-          return "hass:bell-ring";
+          return "mdi:bell-ring";
         default:
-          return "hass:bell";
+          return "mdi:bell";
       }
 
     case "binary_sensor":
       return state && state === "off"
-        ? "hass:radiobox-blank"
-        : "hass:checkbox-marked-circle";
+        ? "mdi:radiobox-blank"
+        : "mdi:checkbox-marked-circle";
 
     case "cover":
-      return state === "closed" ? "hass:window-closed" : "hass:window-open";
+      return state === "closed" ? "mdi:window-closed" : "mdi:window-open";
 
     case "lock":
-      return state && state === "unlocked" ? "hass:lock-open" : "hass:lock";
+      return state && state === "unlocked" ? "mdi:lock-open" : "mdi:lock";
 
     case "media_player":
       return state && state !== "off" && state !== "idle"
-        ? "hass:cast-connected"
-        : "hass:cast";
+        ? "mdi:cast-connected"
+        : "mdi:cast";
 
     case "zwave":
       switch (state) {
         case "dead":
-          return "hass:emoticon-dead";
+          return "mdi:emoticon-dead";
         case "sleeping":
-          return "hass:sleep";
+          return "mdi:sleep";
         case "initializing":
-          return "hass:timer-sand";
+          return "mdi:timer-sand";
         default:
-          return "hass:z-wave";
+          return "mdi:z-wave";
       }
 
     default:

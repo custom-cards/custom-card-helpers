@@ -1,6 +1,6 @@
 /** Constants to be used in the frontend. */
 /** Icon to use when no icon specified for domain. */
-export declare const DEFAULT_DOMAIN_ICON = "hass:bookmark";
+export declare const DEFAULT_DOMAIN_ICON = "mdi:bookmark";
 /** Panel to show when no panel is picked. */
 export declare const DEFAULT_PANEL = "lovelace";
 /** Domains that have a state card. */
