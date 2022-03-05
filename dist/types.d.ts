@@ -42,6 +42,7 @@ export interface CustomActionConfig extends BaseActionConfig {
 export interface BaseActionConfig {
     confirmation?: ConfirmationRestrictionConfig;
     repeat?: number;
+    repeat_limit?: number;
     haptic?: HapticType;
 }
 export interface ConfirmationRestrictionConfig {
