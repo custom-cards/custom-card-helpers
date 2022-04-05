@@ -47,22 +47,25 @@ export const handleActionConfig = (
         fireEvent(node, "hass-more-info", {
           entityId: config.entity ? config.entity : config.camera_image!,
         });
+        if (actionConfig.haptic) forwardHaptic(actionConfig.haptic);
       }
       break;
     case "navigate":
       if (actionConfig.navigation_path) {
         navigate(node, actionConfig.navigation_path);
+        if (actionConfig.haptic) forwardHaptic(actionConfig.haptic);
       }
       break;
     case "url":
       if (actionConfig.url_path) {
         window.open(actionConfig.url_path);
+        if (actionConfig.haptic) forwardHaptic(actionConfig.haptic);
       }
       break;
     case "toggle":
       if (config.entity) {
         toggleEntity(hass, config.entity!);
-        forwardHaptic("success");
+        if (actionConfig.haptic) forwardHaptic(actionConfig.haptic);
       }
       break;
     case "call-service": {
@@ -72,7 +75,7 @@ export const handleActionConfig = (
       }
       const [domain, service] = actionConfig.service.split(".", 2);
       hass.callService(domain, service, actionConfig.service_data, actionConfig.target);
-      forwardHaptic("success");
+      if (actionConfig.haptic) forwardHaptic(actionConfig.haptic);
       break;
     }
     case "fire-dom-event": {
