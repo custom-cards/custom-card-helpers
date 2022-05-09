@@ -237,6 +237,7 @@ export interface HomeAssistant {
   ) => Promise<Response>;
   sendWS: (msg: MessageBase) => Promise<void>;
   callWS: <T>(msg: MessageBase) => Promise<T>;
+  hassUrl: (path?) => string;
 }
 
 export enum NumberFormat {
