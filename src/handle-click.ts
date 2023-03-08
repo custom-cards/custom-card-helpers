@@ -84,7 +84,7 @@ export const handleClick = (
         return;
       }
       const [domain, service] = actionConfig.service.split(".", 2);
-      const serviceData = { ...actionConfig.service_data };
+      const serviceData = { ...actionConfig.data };
       if (serviceData.entity_id === "entity") {
         serviceData.entity_id = config.entity;
       }
