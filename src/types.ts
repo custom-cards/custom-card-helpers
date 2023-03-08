@@ -21,7 +21,7 @@ export interface ToggleActionConfig extends BaseActionConfig {
 export interface CallServiceActionConfig extends BaseActionConfig {
   action: "call-service";
   service: string;
-  service_data?: {
+  data?: {
     entity_id?: string | [string];
     [key: string]: any;
   };
@@ -333,7 +333,7 @@ export interface EntitiesCardEntityConfig extends EntityConfig {
     | "brightness";
   action_name?: string;
   service?: string;
-  service_data?: Record<string, unknown>;
+  data?: Record<string, unknown>;
   url?: string;
   tap_action?: ActionConfig;
   hold_action?: ActionConfig;

@@ -71,7 +71,7 @@ export const handleActionConfig = (
         return;
       }
       const [domain, service] = actionConfig.service.split(".", 2);
-      hass.callService(domain, service, actionConfig.service_data, actionConfig.target);
+      hass.callService(domain, service, actionConfig.data, actionConfig.target);
       forwardHaptic("success");
       break;
     }
