@@ -28,7 +28,6 @@
   },
   "homepage": "https://github.com/custom-cards/custom-card-helpers#readme",
   "dependencies": {
-    "@formatjs/ecma402-abstract": "1.14.3",
     "home-assistant-js-websocket": "^6.0.1",
     "intl-messageformat": "^9.11.1",
     "lit": "^2.1.1",
