@@ -1,11 +1,12 @@
 //REF: https://github.com/home-assistant/frontend/blob/dev/src/common/datetime/relative_time.ts
 
-import { selectUnit } from "@formatjs/intl-utils";
 import { FrontendLocaleData } from "../types";
+import { selectUnit } from "./select_unit";
 
  const formatRelTimeMem =
   (locale: FrontendLocaleData) =>
     new Intl.RelativeTimeFormat(locale.language, { numeric: "auto" });
+
 
 /**
  * Calculate a string representing a date object as relative time from now.
