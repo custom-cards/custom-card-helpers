@@ -3,7 +3,8 @@ export const getLovelace = () => {
     root = root && root.shadowRoot;
     root = root && root.querySelector('home-assistant-main');
     root = root && root.shadowRoot;
-    root = root && root.querySelector('app-drawer-layout partial-panel-resolver');
+    root = root && root.querySelector('ha-drawer');
+    root = root && root.querySelector('partial-panel-resolver');
     root = root && root.shadowRoot || root;
     root = root && root.querySelector('ha-panel-lovelace');
     root = root && root.shadowRoot;
