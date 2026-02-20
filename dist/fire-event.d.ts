@@ -22,7 +22,7 @@ export interface HASSDomEvent<T> extends Event {
  * @return {Event} The new event that was fired.
  */
 export declare const fireEvent: <HassEvent extends keyof HASSDomEvents>(node: HTMLElement | Window, type: HassEvent, detail?: HASSDomEvents[HassEvent] | undefined, options?: {
-    bubbles?: boolean | undefined;
-    cancelable?: boolean | undefined;
-    composed?: boolean | undefined;
-} | undefined) => Event;
+    bubbles?: boolean;
+    cancelable?: boolean;
+    composed?: boolean;
+}) => Event;

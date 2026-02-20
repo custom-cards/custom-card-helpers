@@ -13,4 +13,4 @@ export declare const round: (value: number, precision?: number) => number;
  * @param locale The user-selected language and number format, from `hass.locale`
  * @param options Intl.NumberFormatOptions to use
  */
-export declare const formatNumber: (num: string | number, localeOptions?: FrontendLocaleData | undefined, options?: Intl.NumberFormatOptions | undefined) => string;
+export declare const formatNumber: (num: string | number, localeOptions?: FrontendLocaleData, options?: Intl.NumberFormatOptions) => string;
