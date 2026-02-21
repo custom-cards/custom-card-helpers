@@ -1,9 +1,7 @@
 //REF: https://github.com/home-assistant/frontend/blob/dev/src/common/translations/localize.ts
 
 import IntlMessageFormat from "intl-messageformat";
-import { Resources } from "../types";
-
-export type LocalizeFunc = (key: string, ...args: any[]) => string;
+import { LocalizeFunc, Resources } from "../types";
 
 interface FormatType {
   [format: string]: any;
