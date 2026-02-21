@@ -28,6 +28,10 @@
   ],
   "author": "Ian Richardson",
   "license": "MIT",
+  "engines": {
+    "node": ">=24",
+    "npm": ">=11"
+  },
   "bugs": {
     "url": "https://github.com/custom-cards/custom-card-helpers/issues"
   },
