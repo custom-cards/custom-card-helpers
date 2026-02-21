@@ -60,6 +60,7 @@ export interface CustomActionConfig extends BaseActionConfig {
 export interface BaseActionConfig {
   confirmation?: ConfirmationRestrictionConfig;
   repeat?: number;
+  repeat_limit?: number;
   haptic?: HapticType;
 }
 
@@ -319,6 +320,11 @@ export type ActionHandlerEvent = HASSDomEvent<ActionHandlerDetail>;
 export interface ActionHandlerOptions {
   hasHold?: boolean;
   hasDoubleClick?: boolean;
+  repeat?: number;
+  repeatLimit?: number;
+  isMomentary?: boolean;
+  disableKbd?: boolean;
+  disabled?: boolean;
 }
 
 export interface EntitiesCardEntityConfig extends EntityConfig {

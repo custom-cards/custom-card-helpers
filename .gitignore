@@ -3,3 +3,4 @@
 /.rts2_cache_umd/
 /node_modules/
 docs
+dist
