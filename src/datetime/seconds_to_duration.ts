@@ -18,7 +18,7 @@ export function secondsToDuration(duration: number) {
     if (duration >= 3600) {
       string = `${leftPad(h)}:` + string;
       if (duration >= 86400) {
-        string = `${leftPad(d)}:` + string
+        string = `${leftPad(d)}:` + string;
       }
     }
   }
