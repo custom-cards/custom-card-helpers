@@ -1,0 +1,13 @@
+# Source - https://stackoverflow.com/a/66819358
+# Posted by Johnny, modified by community. See post 'Timeline' for change history
+# Retrieved 2026-02-27, License - CC BY-SA 4.0
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    # Always increase the version requirement
+    # to match the new version.
+    versioning-strategy: increase
