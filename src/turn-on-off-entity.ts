@@ -23,3 +23,13 @@ export const turnOnOffEntity = (
 
   return hass.callService(serviceDomain, service, { entity_id: entityId });
 };
+
+export const turnOnEntity = (
+  hass: HomeAssistant,
+  entityId: string
+): Promise<void> => turnOnOffEntity(hass, entityId, true);
+
+export const turnOffEntity = (
+  hass: HomeAssistant,
+  entityId: string
+): Promise<void> => turnOnOffEntity(hass, entityId, false);

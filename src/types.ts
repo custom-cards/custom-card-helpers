@@ -54,6 +54,16 @@ export interface CustomActionConfig extends BaseActionConfig {
   action: "fire-dom-event";
 }
 
+export interface TurnOnActionConfig extends BaseActionConfig {
+  action: "turn_on";
+  entity?: string;
+}
+
+export interface TurnOffActionConfig extends BaseActionConfig {
+  action: "turn_off";
+  entity?: string;
+}
+
 /**
  * `repeat` and `haptic` are specifically for use in custom cards like the Button-Card
  */
@@ -81,7 +91,9 @@ export type ActionConfig =
   | MoreInfoActionConfig
   | NoActionConfig
   | CustomActionConfig
-  | ToggleMenuActionConfig;
+  | ToggleMenuActionConfig
+  | TurnOnActionConfig
+  | TurnOffActionConfig;
 
 export interface HuiRootElement extends HTMLElement {
   lovelace: {

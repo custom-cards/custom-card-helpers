@@ -1,8 +1,9 @@
-import { HomeAssistant, ActionConfig } from "./types";
+import { HomeAssistant, ActionConfig, TurnOnActionConfig, TurnOffActionConfig } from "./types";
 import { forwardHaptic } from "./haptic";
 import { fireEvent } from "./fire-event";
 import { navigate } from "./navigate";
 import { toggleEntity } from "./toggle-entity";
+import { turnOnOffEntity } from "./turn-on-off-entity";
 
 export const handleActionConfig = (
   node: HTMLElement,
@@ -64,6 +65,22 @@ export const handleActionConfig = (
         toggleEntity(hass, config.entity!);
         forwardHaptic("success");
       }
+      break;
+    case "turn_on":
+      turnOnOffEntity(
+        hass,
+        (actionConfig as TurnOnActionConfig).entity || config.entity!,
+        true
+      );
+      forwardHaptic("success");
+      break;
+    case "turn_off":
+      turnOnOffEntity(
+        hass,
+        (actionConfig as TurnOffActionConfig).entity || config.entity!,
+        false
+      );
+      forwardHaptic("success");
       break;
     case "call-service": {
       if (!actionConfig.service) {
