@@ -37,7 +37,6 @@
   },
   "homepage": "https://github.com/custom-cards/custom-card-helpers#readme",
   "dependencies": {
-    "@formatjs/intl-utils": "^3.8.4",
     "home-assistant-js-websocket": "^9.6.0",
     "intl-messageformat": "^11.1.2",
     "superstruct": "^2.0.2"
