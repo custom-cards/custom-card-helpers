@@ -6,8 +6,6 @@ import { selectUnit } from "./select_unit";
  const formatRelTimeMem =
   (locale: FrontendLocaleData) =>
     new Intl.RelativeTimeFormat(locale.language, { numeric: "auto" });
-
-
 /**
  * Calculate a string representing a date object as relative time from now.
  *
