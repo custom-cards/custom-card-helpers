@@ -83,6 +83,15 @@ export type ActionConfig =
   | CustomActionConfig
   | ToggleMenuActionConfig;
 
+export interface HuiRootElement extends HTMLElement {
+  lovelace: {
+    config: LovelaceConfig;
+    current_view: number;
+    [key: string]: any;
+  };
+  ___curView: number;
+}
+
 export interface Window {
   // Custom panel entry point url
   customPanelJS: string;
