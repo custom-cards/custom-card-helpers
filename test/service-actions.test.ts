@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { toggleEntity } from "../src/toggle-entity";
 import { turnOnOffEntities } from "../src/turn-on-off-entities";
-import { turnOnOffEntity } from "../src/turn-on-off-entity";
+import { turnOnOffEntity, turnOnEntity, turnOffEntity } from "../src/turn-on-off-entity";
 
 describe("turnOnOffEntity", () => {
   it("uses domain-specific lock and cover services", async () => {
@@ -41,6 +41,24 @@ describe("toggleEntity", () => {
 
     await toggleEntity(hass, "switch.kitchen");
     expect(callService).toHaveBeenCalledWith("switch", "turn_on", {
+      entity_id: "switch.kitchen",
+    });
+  });
+});
+
+describe("turnOnEntity / turnOffEntity", () => {
+  it("turnOnEntity calls turn_on service", async () => {
+    const callService = vi.fn().mockResolvedValue(undefined);
+    await turnOnEntity({ callService } as any, "scene.movie_night");
+    expect(callService).toHaveBeenCalledWith("scene", "turn_on", {
+      entity_id: "scene.movie_night",
+    });
+  });
+
+  it("turnOffEntity calls turn_off service", async () => {
+    const callService = vi.fn().mockResolvedValue(undefined);
+    await turnOffEntity({ callService } as any, "switch.kitchen");
+    expect(callService).toHaveBeenCalledWith("switch", "turn_off", {
       entity_id: "switch.kitchen",
     });
   });
