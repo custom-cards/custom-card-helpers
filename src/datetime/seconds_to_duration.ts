@@ -1,3 +1,5 @@
+//REF: https://github.com/home-assistant/frontend/blob/dev/src/common/datetime/seconds_to_duration.ts
+
 const leftPad = (num: number) => (num < 10 ? `0${num}` : num);
 
 export function secondsToDuration(duration: number) {

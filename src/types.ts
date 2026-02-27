@@ -5,29 +5,28 @@ import {
   Connection,
   MessageBase,
   HassServices,
+  HassServiceTarget,
 } from "home-assistant-js-websocket";
 import { HapticType } from "./haptic";
 import { HASSDomEvent } from "./fire-event";
 
 export interface ToggleMenuActionConfig extends BaseActionConfig {
   action: "toggle-menu";
-  repeat?: number;
-  haptic?: HapticType;
 }
 
 export interface ToggleActionConfig extends BaseActionConfig {
   action: "toggle";
-  repeat?: number;
-  haptic?: HapticType;
 }
 
 export interface CallServiceActionConfig extends BaseActionConfig {
   action: "call-service";
   service: string;
-  service_data?: {
+  data?: {
     entity_id?: string | [string];
     [key: string]: any;
   };
+
+  target?: HassServiceTarget;
   repeat?: number;
   haptic?: HapticType;
 }
@@ -35,38 +34,34 @@ export interface CallServiceActionConfig extends BaseActionConfig {
 export interface NavigateActionConfig extends BaseActionConfig {
   action: "navigate";
   navigation_path: string;
-  repeat?: number;
-  haptic?: HapticType;
 }
 
 export interface UrlActionConfig extends BaseActionConfig {
   action: "url";
   url_path: string;
-  repeat?: number;
-  haptic?: HapticType;
 }
 
 export interface MoreInfoActionConfig extends BaseActionConfig {
   action: "more-info";
   entity?: string;
-  repeat?: number;
-  haptic?: HapticType;
 }
 
 export interface NoActionConfig extends BaseActionConfig {
   action: "none";
-  repeat?: number;
-  haptic?: HapticType;
 }
 
 export interface CustomActionConfig extends BaseActionConfig {
   action: "fire-dom-event";
-  repeat?: number;
-  haptic?: HapticType;
 }
 
+/**
+ * `repeat` and `haptic` are specifically for use in custom cards like the Button-Card
+ */
 export interface BaseActionConfig {
   confirmation?: ConfirmationRestrictionConfig;
+  repeat?: number;
+  repeat_limit?: number;
+  haptic?: HapticType;
 }
 
 export interface ConfirmationRestrictionConfig {
@@ -87,6 +82,15 @@ export type ActionConfig =
   | NoActionConfig
   | CustomActionConfig
   | ToggleMenuActionConfig;
+
+export interface HuiRootElement extends HTMLElement {
+  lovelace: {
+    config: LovelaceConfig;
+    current_view: number;
+    [key: string]: any;
+  };
+  ___curView: number;
+}
 
 export interface Window {
   // Custom panel entry point url
@@ -112,7 +116,7 @@ declare global {
       config: any;
     };
     "hass-more-info": {
-      entityId: string | null;
+      entityId: string | undefined;
     };
     "ll-rebuild": {};
     "ll-custom": {};
@@ -185,6 +189,13 @@ export interface Translation {
   fingerprints: { [fragment: string]: string };
 }
 
+export interface ServiceCallRequest {
+  domain: string;
+  service: string;
+  serviceData?: Record<string, any>;
+  target?: HassServiceTarget;
+}
+
 export interface HomeAssistant {
   auth: Auth;
   connection: Connection;
@@ -203,13 +214,10 @@ export interface HomeAssistant {
   //   - language in local appstorage
   //   - browser language
   //   - english (en)
-  /**
-   * @deprecated Use `locale.language` instead
-   */
   language: string;
-  locale?: FrontendTranslationData;
+  locale: FrontendLocaleData;
   // local stored language, keep that name for backward compability
-  selectedLanguage: string;
+  selectedLanguage: string | null;
   resources: Resources;
   localize: LocalizeFunc;
   translationMetadata: {
@@ -223,9 +231,10 @@ export interface HomeAssistant {
   moreInfoEntityId: string;
   user: CurrentUser;
   callService: (
-    domain: string,
-    service: string,
-    serviceData?: { [key: string]: any }
+    domain: ServiceCallRequest["domain"],
+    service: ServiceCallRequest["service"],
+    serviceData?: ServiceCallRequest["serviceData"],
+    target?: ServiceCallRequest["target"]
   ) => Promise<void>;
   callApi: <T>(
     method: "GET" | "POST" | "PUT" | "DELETE",
@@ -238,6 +247,7 @@ export interface HomeAssistant {
   ) => Promise<Response>;
   sendWS: (msg: MessageBase) => Promise<void>;
   callWS: <T>(msg: MessageBase) => Promise<T>;
+  hassUrl: (path?: string) => string;
 }
 
 export enum NumberFormat {
@@ -311,11 +321,6 @@ export interface LovelaceBadgeConfig {
   [key: string]: any;
 }
 
-export interface FrontendTranslationData {
-  language: string;
-  number_format: NumberFormat;
-}
-
 export interface ActionHandlerDetail {
   action: string;
 }
@@ -325,6 +330,11 @@ export type ActionHandlerEvent = HASSDomEvent<ActionHandlerDetail>;
 export interface ActionHandlerOptions {
   hasHold?: boolean;
   hasDoubleClick?: boolean;
+  repeat?: number;
+  repeatLimit?: number;
+  isMomentary?: boolean;
+  disableKbd?: boolean;
+  disabled?: boolean;
 }
 
 export interface EntitiesCardEntityConfig extends EntityConfig {
@@ -339,7 +349,7 @@ export interface EntitiesCardEntityConfig extends EntityConfig {
     | "brightness";
   action_name?: string;
   service?: string;
-  service_data?: Record<string, unknown>;
+  data?: Record<string, unknown>;
   url?: string;
   tap_action?: ActionConfig;
   hold_action?: ActionConfig;

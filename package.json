@@ -1,15 +1,20 @@
 {
   "name": "custom-card-helpers",
-  "version": "1.8.0",
+  "version": "2.0.0",
   "description": "Set of helpful functions and types for Custom Card creators",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
   "module": "dist/index.m.js",
   "source": "src/index.ts",
   "scripts": {
-    "dev": "microbundle watch",
-    "build": "microbundle",
-    "docs": "./node_modules/.bin/typedoc --out docs src --module commonjs --ignoreCompilerErrors && touch ./docs/.nojekyll"
+    "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
+    "dev": "rollup -c rollup.config.cjs -w",
+    "build:types": "tsc --project tsconfig.json --emitDeclarationOnly --declaration --declarationMap false --outDir dist",
+    "build:js": "rollup -c rollup.config.cjs",
+    "build": "npm run clean && npm run build:types && npm run build:js",
+    "docs": "typedoc --githubPages --out docs src",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "repository": {
     "type": "git",
@@ -23,21 +28,30 @@
   ],
   "author": "Ian Richardson",
   "license": "MIT",
+  "engines": {
+    "node": ">=24",
+    "npm": ">=11"
+  },
   "bugs": {
     "url": "https://github.com/custom-cards/custom-card-helpers/issues"
   },
   "homepage": "https://github.com/custom-cards/custom-card-helpers#readme",
   "dependencies": {
-    "fecha": "^4.2.0",
-    "home-assistant-js-websocket": "^5.1.0",
-    "intl-messageformat": "^8.3.9",
-    "lit": "^2.0.0-rc.3",
-    "rollup": "^2.7.6",
-    "superstruct": "^0.8.3",
-    "typescript": "^3.8.3"
+    "home-assistant-js-websocket": "^9.6.0",
+    "intl-messageformat": "^11.1.2",
+    "superstruct": "^2.0.2"
+  },
+  "peerDependencies": {
+    "lit": ">=3.0.0"
   },
   "devDependencies": {
-    "microbundle": "^0.13.0",
-    "typedoc": "^0.17.6"
+    "@rollup/plugin-typescript": "^12.1.4",
+    "jsdom": "^26.1.0",
+    "lit": "^3.3.1",
+    "rollup": "^4.58.0",
+    "tslib": "^2.8.1",
+    "typedoc": "^0.28.17",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
   }
 }

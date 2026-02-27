@@ -50,10 +50,12 @@ export const createThing = (cardConfig, isRow = false) => {
   const _createThing = (tag, config) => {
     const element = window.document.createElement(tag);
     try {
+      // Preventing an error-card infinity loop: https://github.com/custom-cards/custom-card-helpers/issues/54
+      if (!element.setConfig) return;
       element.setConfig(config);
     } catch (err) {
       console.error(tag, err);
-      return _createError(err.message, config);
+      return _createError((err as Error).message, config);
     }
     return element;
   };

@@ -5,8 +5,8 @@ To use: `npm i custom-card-helpers` or `yarn add custom-card-helpers`
 To develop run:
 
 ```bash
-yarn install
-npx microbundle
+npm install
+npm run build
 ```
 
 Check the [documentation](https://custom-cards.github.io/custom-card-helpers/) for details on available functions

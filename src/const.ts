@@ -5,7 +5,7 @@
 // Each constant should have a description what it is supposed to be used for.
 
 /** Icon to use when no icon specified for domain. */
-export const DEFAULT_DOMAIN_ICON = "hass:bookmark";
+export const DEFAULT_DOMAIN_ICON = "mdi:bookmark";
 
 /** Panel to show when no panel is picked. */
 export const DEFAULT_PANEL = "lovelace";

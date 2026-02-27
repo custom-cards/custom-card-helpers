@@ -4,12 +4,12 @@ import { UNIT_C, UNIT_F } from "./const";
 import { domainIcon } from "./domain_icons";
 
 const fixedDeviceClassIcons = {
-  humidity: "hass:water-percent",
-  illuminance: "hass:brightness-5",
-  temperature: "hass:thermometer",
-  pressure: "hass:gauge",
-  power: "hass:flash",
-  signal_strength: "hass:wifi",
+  humidity: "mdi:water-percent",
+  illuminance: "mdi:brightness-5",
+  temperature: "mdi:thermometer",
+  pressure: "mdi:gauge",
+  power: "mdi:flash",
+  signal_strength: "mdi:wifi",
 };
 
 export const sensorIcon = (state: HassEntity) => {
@@ -21,32 +21,32 @@ export const sensorIcon = (state: HassEntity) => {
   if (dclass === "battery") {
     const battery = Number(state.state);
     if (isNaN(battery)) {
-      return "hass:battery-unknown";
+      return "mdi:battery-unknown";
     }
     const batteryRound = Math.round(battery / 10) * 10;
     if (batteryRound >= 100) {
-      return "hass:battery";
+      return "mdi:battery";
     }
     if (batteryRound <= 0) {
-      return "hass:battery-alert";
+      return "mdi:battery-alert";
     }
     // Will return one of the following icons: (listed so extractor picks up)
-    // hass:battery-10
-    // hass:battery-20
-    // hass:battery-30
-    // hass:battery-40
-    // hass:battery-50
-    // hass:battery-60
-    // hass:battery-70
-    // hass:battery-80
-    // hass:battery-90
+    // mdi:battery-10
+    // mdi:battery-20
+    // mdi:battery-30
+    // mdi:battery-40
+    // mdi:battery-50
+    // mdi:battery-60
+    // mdi:battery-70
+    // mdi:battery-80
+    // mdi:battery-90
     // We obscure 'hass' in iconname so this name does not get picked up
     return `${"hass"}:battery-${batteryRound}`;
   }
 
   const unit = state.attributes.unit_of_measurement;
   if (unit === UNIT_C || unit === UNIT_F) {
-    return "hass:thermometer";
+    return "mdi:thermometer";
   }
   return domainIcon("sensor");
 };

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es6",                          /* Specify ECMAScript target version. */
+    "module": "ESNext",                     /* Specify module code generation. */
+    "moduleResolution": "node",
+    "lib": ["DOM", "ES2020", "ES2020.Intl"],
+    "strict": true,                           /* Enable all strict type-checking options. */
+    "outDir": "dist",
+    "noImplicitAny": false,                 /* Raise error on expressions and declarations with an implied 'any' type. */
+    "skipLibCheck": true,                     /* Skip type checking of declaration files. */
+    "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
+  },
+  "include": ["src/**/*.ts"]
+}

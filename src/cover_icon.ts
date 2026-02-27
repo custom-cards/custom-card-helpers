@@ -6,15 +6,15 @@ export const coverIcon = (state: HassEntity): string => {
   const open = state.state !== "closed";
   switch (state.attributes.device_class) {
     case "garage":
-      return open ? "hass:garage-open" : "hass:garage";
+      return open ? "mdi:garage-open" : "mdi:garage";
     case "door":
-      return open ? "hass:door-open" : "hass:door-closed";
+      return open ? "mdi:door-open" : "mdi:door-closed";
     case "shutter":
-      return open ? "hass:window-shutter-open" : "hass:window-shutter";
+      return open ? "mdi:window-shutter-open" : "mdi:window-shutter";
     case "blind":
-      return open ? "hass:blinds-open" : "hass:blinds";
+      return open ? "mdi:blinds-open" : "mdi:blinds";
     case "window":
-      return open ? "hass:window-open" : "hass:window-closed";
+      return open ? "mdi:window-open" : "mdi:window-closed";
     default:
       return domainIcon("cover", state.state);
   }

@@ -2,50 +2,59 @@ import { HassEntity } from "home-assistant-js-websocket";
 
 /** Return an icon representing a binary sensor state. */
 
-export const binarySensorIcon = (state: HassEntity) => {
-  const activated = state.state && state.state === "off";
-  switch (state.attributes.device_class) {
+export const binarySensorIcon = (state?: string, stateObj?: HassEntity) => {
+  const is_off = state === "off";
+  switch (stateObj?.attributes.device_class) {
     case "battery":
-      return activated ? "hass:battery" : "hass:battery-outline";
+      return is_off ? "mdi:battery" : "mdi:battery-outline";
+    case "battery_charging":
+      return is_off ? "mdi:battery" : "mdi:battery-charging";
     case "cold":
-      return activated ? "hass:thermometer" : "hass:snowflake";
+      return is_off ? "mdi:thermometer" : "mdi:snowflake";
     case "connectivity":
-      return activated ? "hass:server-network-off" : "hass:server-network";
+      return is_off ? "mdi:server-network-off" : "mdi:server-network";
     case "door":
-      return activated ? "hass:door-closed" : "hass:door-open";
+      return is_off ? "mdi:door-closed" : "mdi:door-open";
     case "garage_door":
-      return activated ? "hass:garage" : "hass:garage-open";
-    case "gas":
+      return is_off ? "mdi:garage" : "mdi:garage-open";
     case "power":
+      return is_off ? "mdi:power-plug-off" : "mdi:power-plug";
+    case "gas":
     case "problem":
     case "safety":
+    case "tamper":
+      return is_off ? "mdi:check-circle" : "mdi:alert-circle";
     case "smoke":
-      return activated ? "hass:shield-check" : "hass:alert";
+      return is_off ? "mdi:check-circle" : "mdi:smoke";
     case "heat":
-      return activated ? "hass:thermometer" : "hass:fire";
+      return is_off ? "mdi:thermometer" : "mdi:fire";
     case "light":
-      return activated ? "hass:brightness-5" : "hass:brightness-7";
+      return is_off ? "mdi:brightness-5" : "mdi:brightness-7";
     case "lock":
-      return activated ? "hass:lock" : "hass:lock-open";
+      return is_off ? "mdi:lock" : "mdi:lock-open";
     case "moisture":
-      return activated ? "hass:water-off" : "hass:water";
+      return is_off ? "mdi:water-off" : "mdi:water";
     case "motion":
-      return activated ? "hass:walk" : "hass:run";
+      return is_off ? "mdi:walk" : "mdi:run";
     case "occupancy":
-      return activated ? "hass:home-outline" : "hass:home";
+      return is_off ? "mdi:home-outline" : "mdi:home";
     case "opening":
-      return activated ? "hass:square" : "hass:square-outline";
+      return is_off ? "mdi:square" : "mdi:square-outline";
     case "plug":
-      return activated ? "hass:power-plug-off" : "hass:power-plug";
+      return is_off ? "mdi:power-plug-off" : "mdi:power-plug";
     case "presence":
-      return activated ? "hass:home-outline" : "hass:home";
+      return is_off ? "mdi:home-outline" : "mdi:home";
+    case "running":
+      return is_off ? "mdi:stop" : "mdi:play";
     case "sound":
-      return activated ? "hass:music-note-off" : "hass:music-note";
+      return is_off ? "mdi:music-note-off" : "mdi:music-note";
+    case "update":
+      return is_off ? "mdi:package" : "mdi:package-up";
     case "vibration":
-      return activated ? "hass:crop-portrait" : "hass:vibrate";
+      return is_off ? "mdi:crop-portrait" : "mdi:vibrate";
     case "window":
-      return activated ? "hass:window-closed" : "hass:window-open";
+      return is_off ? "mdi:window-closed" : "mdi:window-open";
     default:
-      return activated ? "hass:radiobox-blank" : "hass:checkbox-marked-circle";
+      return is_off ? "mdi:radiobox-blank" : "mdi:checkbox-marked-circle";
   }
 };
