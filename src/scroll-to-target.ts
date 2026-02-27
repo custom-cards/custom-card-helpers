@@ -7,7 +7,7 @@
  * @param {number} top The coordinate to scroll to, along the y-axis.
  * @param {boolean} smooth true if the scroll position should be smoothly adjusted.
  */
-export default function scrollToTarget(element, target) {
+export function scrollToTarget(element, target) {
   // the scroll event will trigger _updateScrollState directly,
   // However, _updateScrollState relies on the previous `scrollTop` to update the states.
   // Calling _updateScrollState will ensure that the states are synced correctly.
