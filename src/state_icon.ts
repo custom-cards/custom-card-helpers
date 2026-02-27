@@ -8,7 +8,7 @@ import { inputDateTimeIcon } from "./input_datetime_icon";
 import { domainIcon } from "./domain_icons";
 
 const domainIcons = {
-  binary_sensor: binarySensorIcon,
+  binary_sensor: (stateObj: HassEntity) => binarySensorIcon(stateObj.state, stateObj),
   cover: coverIcon,
   sensor: sensorIcon,
   input_datetime: inputDateTimeIcon,
