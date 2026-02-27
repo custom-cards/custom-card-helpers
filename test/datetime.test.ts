@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import durationToSeconds from "../src/datetime/duration_to_seconds";
-import secondsToDuration from "../src/datetime/seconds_to_duration";
+import { durationToSeconds } from "../src/datetime/duration_to_seconds";
+import { secondsToDuration } from "../src/datetime/seconds_to_duration";
 import { timerTimeRemaining } from "../src/datetime/timer_time_remaining";
 import { useAmPm } from "../src/datetime/use_am_pm";
 import { TimeFormat } from "../src/types";
