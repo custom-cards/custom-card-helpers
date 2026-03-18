@@ -4,6 +4,7 @@ import { coverIcon } from "../src/cover_icon";
 import { domainIcon } from "../src/domain_icons";
 import { inputDateTimeIcon } from "../src/input_datetime_icon";
 import { sensorIcon } from "../src/sensor_icon";
+import { stateIcon } from "../src/state_icon";
 
 describe("domainIcon", () => {
   it("returns fixed icons and state-based icons", () => {
@@ -67,5 +68,25 @@ describe("inputDateTimeIcon", () => {
     expect(inputDateTimeIcon({ attributes: { has_date: true, has_time: true } } as any)).toBe(
       "mdi:calendar-clock"
     );
+  });
+});
+
+describe("stateIcon", () => {
+  it("returns correct icon for binary_sensor with device_class", () => {
+    const stateObj = {
+      entity_id: "binary_sensor.door",
+      state: "off",
+      attributes: { device_class: "door" },
+    } as any;
+    expect(stateIcon(stateObj)).toBe("mdi:door-closed");
+  });
+
+  it("returns correct icon for binary_sensor on state", () => {
+    const stateObj = {
+      entity_id: "binary_sensor.door",
+      state: "on",
+      attributes: { device_class: "door" },
+    } as any;
+    expect(stateIcon(stateObj)).toBe("mdi:door-open");
   });
 });
