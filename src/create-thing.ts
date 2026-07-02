@@ -91,8 +91,13 @@ export const createThing = (cardConfig, isRow = false) => {
   const timer = setTimeout(() => {
     element.style.display = "";
   }, 2000);
-  // Remove error if element is defined later
-  customElements.whenDefined(cardConfig.type).then(() => {
+  // Remove error if element is defined later. Must wait on `tag` (the resolved custom element
+  // tag name, e.g. "hui-conditional-row" or "multiple-entity-row"), not `cardConfig.type` (the
+  // raw config type string, e.g. "conditional" or "custom:multiple-entity-row") - those are
+  // different strings, so waiting on cardConfig.type would never resolve, and for any `custom:`
+  // type it can never resolve at all (colons aren't valid in custom element names). See
+  // https://github.com/custom-cards/button-card/pull/1152 for the same fix in a fork of this file.
+  customElements.whenDefined(tag).then(() => {
     clearTimeout(timer);
     fireEvent(element, "ll-rebuild", {}, element);
   });
