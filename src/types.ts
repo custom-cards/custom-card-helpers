@@ -252,11 +252,28 @@ export interface ServiceCallRequest {
   target?: HassServiceTarget;
 }
 
+// Entry of the entity registry as exposed by the HA frontend in `hass.entities`.
+export interface EntityRegistryDisplayEntry {
+  entity_id: string;
+  name?: string;
+  icon?: string;
+  device_id?: string;
+  area_id?: string;
+  labels: string[];
+  hidden?: boolean;
+  entity_category?: "config" | "diagnostic";
+  translation_key?: string;
+  platform?: string;
+  display_precision?: number;
+}
+
 export interface HomeAssistant {
   auth: Auth;
   connection: Connection;
   connected: boolean;
   states: HassEntities;
+  // Entity registry keyed by entity_id, populated by the HA frontend
+  entities: Record<string, EntityRegistryDisplayEntry>;
   services: HassServices;
   config: HassConfig;
   themes: Themes;
