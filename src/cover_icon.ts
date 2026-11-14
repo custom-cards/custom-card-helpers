@@ -5,7 +5,7 @@ export const coverIcon = (state: HassEntity): string => {
   const open = state.state !== "closed";
   switch (state.attributes.device_class) {
     case "garage":
-      switch (state) {
+      switch (state.state) {
         case "opening":
           return "mdi:arrow-up-box";
         case "closing":
@@ -16,7 +16,7 @@ export const coverIcon = (state: HassEntity): string => {
           return "mdi:garage-open";
       }
     case "gate":
-      switch (state) {
+      switch (state.state) {
         case "opening":
         case "closing":
           return "mdi:gate-arrow-right";
@@ -30,7 +30,7 @@ export const coverIcon = (state: HassEntity): string => {
     case "damper":
       return open ? "mdi:circle" : "mdi:circle-slice-8";
     case "shutter":
-      switch (state) {
+      switch (state.state) {
         case "opening":
           return "mdi:arrow-up-box";
         case "closing":
@@ -41,7 +41,7 @@ export const coverIcon = (state: HassEntity): string => {
           return "mdi:window-shutter-open";
       }
     case "curtain":
-      switch (state) {
+      switch (state.state) {
         case "opening":
           return "mdi:arrow-split-vertical";
         case "closing":
@@ -53,7 +53,7 @@ export const coverIcon = (state: HassEntity): string => {
       }
     case "blind":
     case "shade":
-      switch (state) {
+      switch (state.state) {
         case "opening":
           return "mdi:arrow-up-box";
         case "closing":
@@ -64,7 +64,7 @@ export const coverIcon = (state: HassEntity): string => {
           return "mdi:blinds-open";
       }
     case "window":
-      switch (state) {
+      switch (state.state) {
         case "opening":
           return "mdi:arrow-up-box";
         case "closing":
@@ -75,7 +75,7 @@ export const coverIcon = (state: HassEntity): string => {
           return "mdi:window-open";
       }
     default:
-      switch (state) {
+      switch (state.state) {
         case "opening":
           return "mdi:arrow-up-box";
         case "closing":
