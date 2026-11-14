@@ -433,6 +433,69 @@ export interface LovelaceCardEditor extends HTMLElement {
   setConfig(config: LovelaceCardConfig): void;
 }
 
+export interface LovelaceCardFeatureConfig {
+  type: string;
+  [key: string]: any;
+}
+
+export type LovelaceCardFeaturePosition = "bottom" | "inline";
+
+export interface LovelaceCardFeatureContext {
+  entity_id?: string;
+  area_id?: string;
+}
+
+export interface LovelaceCardFeature extends HTMLElement {
+  hass?: HomeAssistant;
+  /** @deprecated Use `context` instead */
+  stateObj?: HassEntity;
+  context?: LovelaceCardFeatureContext;
+  setConfig(config: LovelaceCardFeatureConfig): void;
+  color?: string;
+  position?: LovelaceCardFeaturePosition;
+}
+
+export interface LovelaceCardFeatureEditor extends HTMLElement {
+  hass?: HomeAssistant;
+  lovelace?: LovelaceConfig;
+  context?: LovelaceCardFeatureContext;
+  setConfig(config: LovelaceCardFeatureConfig): void;
+}
+
+// Loose description of a ha-form schema item
+export interface HaFormSchema {
+  name?: string;
+  type?: string;
+  [key: string]: any;
+}
+
+// Static side of a card feature class, e.g. `MyFeature satisfies LovelaceCardFeatureConstructor`
+export interface LovelaceCardFeatureConstructor {
+  new (...args: any[]): LovelaceCardFeature;
+  getStubConfig?: (
+    hass: HomeAssistant,
+    context?: LovelaceCardFeatureContext
+  ) => LovelaceCardFeatureConfig;
+  getConfigElement?: () => LovelaceCardFeatureEditor;
+  getConfigForm?: () => {
+    schema: HaFormSchema[];
+    assertConfig?: (config: LovelaceCardConfig) => void;
+  };
+}
+
+// Entry for `window.customCardFeatures`, shown in the card feature picker
+export interface CustomCardFeatureEntry {
+  type: string;
+  name?: string;
+  configurable?: boolean;
+  isSupported?: (
+    hass: HomeAssistant,
+    context: LovelaceCardFeatureContext
+  ) => boolean;
+  /** @deprecated Use `isSupported` instead */
+  supported?: (stateObj: HassEntity) => boolean;
+}
+
 export interface LovelaceConfig {
   title?: string;
   views: LovelaceViewConfig[];
