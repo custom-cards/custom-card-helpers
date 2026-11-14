@@ -54,6 +54,36 @@ describe("coverIcon", () => {
       coverIcon({ state: "closed", attributes: { device_class: "garage" } } as any)
     ).toBe("mdi:garage");
   });
+
+  const icon = (state: string, device_class?: string) =>
+    coverIcon({ state, attributes: { device_class } } as any);
+
+  it("returns transitional icons while opening and closing", () => {
+    expect(icon("opening", "garage")).toBe("mdi:arrow-up-box");
+    expect(icon("closing", "garage")).toBe("mdi:arrow-down-box");
+    expect(icon("opening", "gate")).toBe("mdi:gate-arrow-right");
+    expect(icon("opening", "curtain")).toBe("mdi:arrow-split-vertical");
+    expect(icon("closing", "curtain")).toBe("mdi:arrow-collapse-horizontal");
+    expect(icon("opening", "shade")).toBe("mdi:arrow-up-box");
+  });
+
+  it("returns closed and open icons for newly supported classes", () => {
+    expect(icon("closed", "gate")).toBe("mdi:gate");
+    expect(icon("open", "gate")).toBe("mdi:gate-open");
+    expect(icon("closed", "shutter")).toBe("mdi:window-shutter");
+    expect(icon("open", "curtain")).toBe("mdi:curtains");
+    expect(icon("closed", "curtain")).toBe("mdi:curtains-closed");
+    expect(icon("closed", "blind")).toBe("mdi:blinds");
+    expect(icon("open", "damper")).toBe("mdi:circle");
+    expect(icon("closed", "damper")).toBe("mdi:circle-slice-8");
+  });
+
+  it("falls back to window icons for unknown device classes", () => {
+    expect(icon("closed")).toBe("mdi:window-closed");
+    expect(icon("open")).toBe("mdi:window-open");
+    expect(icon("opening")).toBe("mdi:arrow-up-box");
+    expect(icon("closing")).toBe("mdi:arrow-down-box");
+  });
 });
 
 describe("inputDateTimeIcon", () => {
