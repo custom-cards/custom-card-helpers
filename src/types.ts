@@ -1,5 +1,6 @@
 import {
   HassEntities,
+  HassEntity,
   HassConfig,
   Auth,
   Connection,
@@ -8,6 +9,49 @@ import {
   HassServiceTarget,
 } from "home-assistant-js-websocket";
 import { HapticType } from "./haptic";
+
+export interface EntityRegistryDisplayEntry {
+  entity_id: string;
+  name?: string;
+  device_id?: string;
+  area_id?: string;
+  hidden?: boolean;
+  entity_category?: "config" | "diagnostic";
+  translation_key?: string;
+  platform?: string;
+  labels?: string[];
+}
+
+export interface DeviceRegistryEntry {
+  id: string;
+  name: string | null;
+  name_by_user: string | null;
+  area_id: string | null;
+  /** Set when this device is a sub-device of another. @since Home Assistant 2026.4 */
+  parent_device_id?: string | null;
+}
+
+export interface AreaRegistryEntry {
+  area_id: string;
+  name: string;
+  floor_id: string | null;
+}
+
+export interface FloorRegistryEntry {
+  floor_id: string;
+  name: string;
+  level: number | null;
+}
+
+/** One part of a composed entity name, as accepted by `formatEntityName`. */
+export type EntityNameItem =
+  | { type: "entity" | "device" | "area" | "floor" }
+  | { type: "text"; text: string };
+
+export interface EntityNameOptions {
+  /** Joins the resolved parts. Defaults to a single space. */
+  separator?: string;
+}
 import { HASSDomEvent } from "./fire-event";
 
 export interface ToggleMenuActionConfig extends BaseActionConfig {
@@ -238,6 +282,46 @@ export interface HomeAssistant {
       [lang: string]: Translation;
     };
   };
+
+  // Registry data. Populated over the websocket connection after connect, and
+  // needed to resolve an entity's naming context. All optional: `floors` only
+  // exists from HA 2024.4, and marking the rest optional keeps this interface
+  // safe to construct in tests and mocks.
+  entities?: Record<string, EntityRegistryDisplayEntry>;
+  devices?: Record<string, DeviceRegistryEntry>;
+  areas?: Record<string, AreaRegistryEntry>;
+  floors?: Record<string, FloorRegistryEntry>;
+
+  // Display formatters, which apply the user's locale, precision and naming
+  // preferences the same way the built-in cards do. Optional because each was
+  // added in a specific Home Assistant version - check before calling, or gate
+  // on `hass.config.version`.
+  /** @since Home Assistant 2024.4 */
+  formatEntityState?: (stateObj: HassEntity, state?: string) => string;
+  /** @since Home Assistant 2024.4 */
+  formatEntityAttributeName?: (stateObj: HassEntity, attribute: string) => string;
+  /** @since Home Assistant 2024.4 */
+  formatEntityAttributeValue?: (
+    stateObj: HassEntity,
+    attribute: string,
+    value?: unknown
+  ) => string;
+  /**
+   * Formats an entity's display name from its registry context.
+   *
+   * Accepts a plain string (returned as-is), a single name item, an array of
+   * items joined with the separator, or `undefined` for the default name.
+   *
+   * @since Home Assistant 2026.4 in this shape. The helper exists from 2025.10,
+   * but took bare type strings then, and only accepted `EntityNameItem`s
+   * between 2025.11 and 2026.3 - so feature detection is not sufficient, check
+   * `hass.config.version` before calling with a card's `name` option.
+   */
+  formatEntityName?: (
+    stateObj: HassEntity,
+    name?: string | EntityNameItem | EntityNameItem[],
+    options?: EntityNameOptions
+  ) => string;
 
   dockedSidebar: boolean;
   moreInfoEntityId: string;
