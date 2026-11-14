@@ -10,18 +10,6 @@ import {
 } from "home-assistant-js-websocket";
 import { HapticType } from "./haptic";
 
-export interface EntityRegistryDisplayEntry {
-  entity_id: string;
-  name?: string;
-  device_id?: string;
-  area_id?: string;
-  hidden?: boolean;
-  entity_category?: "config" | "diagnostic";
-  translation_key?: string;
-  platform?: string;
-  labels?: string[];
-}
-
 export interface DeviceRegistryEntry {
   id: string;
   name: string | null;
@@ -272,8 +260,6 @@ export interface HomeAssistant {
   connection: Connection;
   connected: boolean;
   states: HassEntities;
-  // Entity registry keyed by entity_id, populated by the HA frontend
-  entities: Record<string, EntityRegistryDisplayEntry>;
   services: HassServices;
   config: HassConfig;
   themes: Themes;
@@ -304,6 +290,7 @@ export interface HomeAssistant {
   // needed to resolve an entity's naming context. All optional: `floors` only
   // exists from HA 2024.4, and marking the rest optional keeps this interface
   // safe to construct in tests and mocks.
+  /** Entity registry keyed by entity_id. */
   entities?: Record<string, EntityRegistryDisplayEntry>;
   devices?: Record<string, DeviceRegistryEntry>;
   areas?: Record<string, AreaRegistryEntry>;
