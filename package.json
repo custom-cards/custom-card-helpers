@@ -6,6 +6,9 @@
   "umd:main": "dist/index.umd.js",
   "module": "dist/index.m.js",
   "source": "src/index.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "dev": "rollup -c rollup.config.cjs -w",
