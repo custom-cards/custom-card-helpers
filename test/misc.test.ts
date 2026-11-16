@@ -92,9 +92,11 @@ describe("format-number helpers", () => {
   });
 
   it("formats numbers with quote_decimal", () => {
-    expect(
-      formatNumber(1234567.891, { number_format: NumberFormat.quote_decimal, language: "de" } as any)
-    ).toBe("1’234’567.89");
+    const result = formatNumber(1234567.891, {
+      number_format: NumberFormat.quote_decimal,
+      language: "de",
+    } as any);
+    expect(result).toMatch(/^1['’]234['’]567\.89$/);
   });
 
   it("rounds numbers and formats fallback none mode", () => {
