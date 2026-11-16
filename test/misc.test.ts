@@ -12,8 +12,8 @@ describe("evaluateFilter", () => {
 
   it("evaluates operators and attribute mode", () => {
     expect(evaluateFilter(stateObj, { operator: "==", value: "10" })).toBe(true);
-    expect(evaluateFilter(stateObj, { operator: ">", value: "2" })).toBe(false);
-    expect(evaluateFilter(stateObj, { operator: "<=", value: "9" })).toBe(true);
+    expect(evaluateFilter(stateObj, { operator: ">", value: "2" })).toBe(true);
+    expect(evaluateFilter(stateObj, { operator: "<=", value: "9" })).toBe(false);
     expect(evaluateFilter(stateObj, { attribute: "level", operator: ">=", value: 10 })).toBe(
       true
     );
