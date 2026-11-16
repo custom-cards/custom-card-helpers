@@ -13,16 +13,20 @@
 <section class="tsd-panel">
 <ul class="tsd-signatures">
 <li class="">
-<div class="tsd-signature tsd-anchor-link" id="evaluatefilter"><span class="tsd-kind-call-signature">evaluateFilter</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">stateObj</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HassEntity</span><span class="tsd-signature-symbol">,</span> <span class="tsd-kind-parameter">filter</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><a href="#evaluatefilter" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
+<div class="tsd-signature tsd-anchor-link" id="evaluatefilter"><span class="tsd-kind-call-signature">evaluateFilter</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">stateObj</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HassEntity</span> <span class="tsd-signature-symbol">|</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">,</span> <span class="tsd-kind-parameter">filter</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><a href="#evaluatefilter" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
 <div class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Evaluate a filter (<code>{ value, operator?, attribute? }</code>) against an entity.</p>
+<p>Numeric states and values are compared as numbers; anything else is compared
+as a string. Returns false when the entity or attribute does not exist.</p>
+</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
-<li><span><span class="tsd-kind-parameter">stateObj</span>: <span class="tsd-signature-type">HassEntity</span></span></li>
+<li><span><span class="tsd-kind-parameter">stateObj</span>: <span class="tsd-signature-type">HassEntity</span> <span class="tsd-signature-symbol">|</span> <span class="tsd-signature-type">undefined</span></span></li>
 <li><span><span class="tsd-kind-parameter">filter</span>: <span class="tsd-signature-type">any</span></span></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/bf8526995773705e675914c6cd5c89b206318e43/src/evaluate-filter.ts#L3">src/evaluate-filter.ts:3</a></li></ul></aside></div></li></ul></section></div>
+<li>Defined in <a href="https://github.com/custom-cards/custom-card-helpers/blob/e4865a3d2d97b144386db4b2a505669b08c62dca/src/evaluate-filter.ts#L45">src/evaluate-filter.ts:45</a></li></ul></aside></div></li></ul></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
