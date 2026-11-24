@@ -40,7 +40,7 @@
   },
   "homepage": "https://github.com/custom-cards/custom-card-helpers#readme",
   "dependencies": {
-    "home-assistant-js-websocket": "^9.8.1",
+    "home-assistant-js-websocket": "^9.9.0",
     "intl-messageformat": "^12.2.0",
     "superstruct": "^2.0.2"
   },
