@@ -85,7 +85,18 @@ describe("format-number helpers", () => {
       "en-US",
       "en",
     ]);
+    expect(numberFormatToLocale({ number_format: NumberFormat.quote_decimal } as any)).toEqual([
+      "de-CH",
+    ]);
     expect(numberFormatToLocale({ number_format: NumberFormat.system } as any)).toBeUndefined();
+  });
+
+  it("formats numbers with quote_decimal", () => {
+    const result = formatNumber(1234567.891, {
+      number_format: NumberFormat.quote_decimal,
+      language: "de",
+    } as any);
+    expect(result).toMatch(/^1['’]234['’]567\.89$/);
   });
 
   it("rounds numbers and formats fallback none mode", () => {

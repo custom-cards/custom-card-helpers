@@ -356,6 +356,7 @@ export enum NumberFormat {
   comma_decimal = "comma_decimal",
   decimal_comma = "decimal_comma",
   space_comma = "space_comma",
+  quote_decimal = "quote_decimal",
   none = "none",
 }
 
